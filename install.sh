@@ -20,6 +20,7 @@ apt_package_sources=(
     network-manager-gnome
     kitty
     unzip
+    scrot
     # editors
     emacs
     vim

@@ -58,6 +58,7 @@ That means:
       network-manager-gnome
       kitty
       unzip
+      scrot
       # editors
       emacs
       vim
