@@ -171,3 +171,21 @@ I use git to source my theme and i3-gaps for debian. The installer can clone any
 #+END_SRC
 
 * Dotfiles
+I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from git.
+For more information see.
+#+BEGIN_SRC sh :tangle install.sh
+  # clone dotfiles
+  git clone --bare https://github.com/not-tacit/.dotfiles $HOME/.dotfiles
+
+  # checkout will backup dotfiles in the way
+  cd ${HOME}
+  mkdir -p .dotfiles-backup && \
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+  xargs -I{} mv {} .dotfiles-backup/{}
+
+  # now check out
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+
+  # hide untracked files
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+#+END_SRC
