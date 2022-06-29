@@ -19,7 +19,7 @@ This script is capable of installing:
   ./install.sh
 #+END_SRC
 
-* Customizatoin
+* Customization
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists with your requirements and they will be installed.
