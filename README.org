@@ -1,1 +1,13 @@
 #+TITLE:debian-autosetup
+
+A simple bash script (compatible with Debian-based distributions) to install software and configure your dotfiles after a fresh install.
+
+This script is capable of installing:
+- Debian sources
+- Apt packages
+- Flatpak/Flathub packages
+- Fonts
+- Git Repositories
+- GTK themes
+- Dotfiles managed with git --bare repositories
+
