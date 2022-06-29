@@ -104,5 +104,70 @@ I use git to source my theme and i3-gaps for debian. The installer can clone any
   #+END_SRC
 
 * Install
+** Debian Sources
+#+BEGIN_SRC sh :tangle install.sh
+    appended_sources=${debian_sources[@]}
+    sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+#+END_SRC
+** Apt Packages
+#+BEGIN_SRC sh :tangle install.sh
+  sudo apt install -y ${apt_package_list[@]}
+#+END_SRC
+** Flatpak/Flathub Packages
+#+BEGIN_SRC sh :tangle install.sh
+  sudo flatpak install -y flathub ${flatpak_package_list[@]}
+#+END_SRC
+** Fonts
+#+BEGIN_SRC sh :tangle install.sh
+  # create downloads folder
+  mkdir ${HOME}/Downloads
+
+  # download fonts
+  for url in "${font_sources[@]}"; do
+      wget -P ${HOME}/Downloads/fonts $url
+  done
+
+  # unzip fonts
+  cd ${HOME}/Downloads/fonts
+  unzip "*.zip"
+
+  # create/check fonts directory
+  fonts_dir="${HOME}/.local/share/fonts"
+  if [ ! -d "${fonts_dir}" ]; then
+      echo "mkdir -p $fonts_dir"
+      mkdir -p "${fonts_dir}"
+  else
+      echo "Found fonts dir $fonts_dir"
+  fi
+
+  # find and copy fonts to font directory
+  find ${HOME}/Downloads/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
+  find ${HOME}/Downloads/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
+
+  # reload font cache
+  fc-cache -f
+#+END_SRC
+** Git Repositories
+#+BEGIN_SRC sh :tangle install.sh
+  # clone git repositories
+  cd ${HOME}/Downloads
+  for url in "${git_sources[@]}"; do
+      git clone $url
+  done
+#+END_SRC
+** Theme
+#+BEGIN_SRC sh :tangle install.sh
+  # create/check theme directory
+  themes_dir="${HOME}/.themes"
+  if [ ! -d "${themes_dir}" ]; then
+      echo "mkdir -p $themes_dir"
+      mkdir -p "${themes_dir}"
+  else
+      echo "Found themes dir $themes_dir"
+  fi
+
+  # move and copy theme files to where they go
+  mv ${HOME}/Downloads/gtk $themes_dir
+#+END_SRC
 
 * Dotfiles
