@@ -23,7 +23,7 @@ This script is capable of installing:
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists with your requirements and they will be installed.
-- Some actions like additional processing of git repositories after download may require custom scripting. 
+- Some actions like additional processing of Git repositories after download may require custom scripting. 
 
 * About
 The bash script is created from this README.org file using Emacs org-mode literate programming.
@@ -178,7 +178,7 @@ I use git to source my theme and i3-gaps for debian. The installer can clone any
 #+END_SRC
 
 * Dotfiles
-I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from git.
+I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from GitHub.
 For more information and how to setup see my [[https://github.com/noncog/.dotfiles][dotfiles-repository]].
 #+BEGIN_SRC sh :tangle install.sh
   # clone dotfiles
