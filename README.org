@@ -20,6 +20,10 @@ This script is capable of installing:
 #+END_SRC
 
 * Customizatoin
+By default, the script is setup to my configuration but is modular and easily customizable.
+
+- Just modify the lists with your requirements and they will be installed.
+- Some actions like additional processing of git repositories after download may require custom scripting. 
 
 * Debian Sources
 
