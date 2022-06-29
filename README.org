@@ -11,3 +11,20 @@ This script is capable of installing:
 - GTK themes
 - Dotfiles managed with git --bare repositories
 
+* Usage
+
+* Customizatoin
+
+* Debian Sources
+
+* Apt Packages
+
+* Flatpak/Flathub Packages
+
+* Font Sources
+
+* Git Sources
+
+* Install
+
+* Dotfiles
