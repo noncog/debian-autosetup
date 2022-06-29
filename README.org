@@ -12,6 +12,12 @@ This script is capable of installing:
 - Dotfiles managed with git --bare repositories
 
 * Usage
+#+BEGIN_SRC :tangle no
+  git clone https://github.com/not-tacit/debian-autosetup
+  cd debian-autosetup
+  chmod +x install.sh
+  ./install.sh
+#+END_SRC
 
 * Customizatoin
 
