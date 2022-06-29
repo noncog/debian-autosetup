@@ -9,7 +9,7 @@ This script is capable of installing:
 - Fonts
 - Git Repositories
 - GTK themes
-- Dotfiles managed with git --bare repositories
+- Dotfiles managed with git --bare repositories ... see dotfiles section for more info.
 
 * Usage
 #+BEGIN_SRC :tangle no
@@ -179,7 +179,7 @@ I use git to source my theme and i3-gaps for debian. The installer can clone any
 
 * Dotfiles
 I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from git.
-For more information see.
+For more information and how to setup see my [[https://github.com/noncog/.dotfiles][dotfiles-repository]].
 #+BEGIN_SRC sh :tangle install.sh
   # clone dotfiles
   git clone --bare https://github.com/noncog/.dotfiles $HOME/.dotfiles
