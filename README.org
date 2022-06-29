@@ -30,7 +30,7 @@ The bash script is created from this README.org file using Emacs org-mode litera
 
 That means:
 - The README is the shell script.
-- Each section documents parts of the shell script.
+- Each section documents part of the shell script.
 - You can use this README to learn how the script functions to customize it or build your own.
 * Debian Sources
 #+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash"
