@@ -26,12 +26,12 @@ By default, the script is setup to my configuration but is modular and easily cu
 - Some actions like additional processing of git repositories after download may require custom scripting. 
 
 * About
-The script is created from this README.org using Emacs org-mode literate programming.
+The bash script is created from this README.org file using Emacs org-mode literate programming.
 
 That means:
 - The README is the shell script.
 - Each section documents parts of the shell script.
-- You can use this README to learn how the script functions or build your own.
+- You can use this README to learn how the script functions to customize it or build your own.
 * Debian Sources
 #+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash"
   debian_sources=(
