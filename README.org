@@ -13,7 +13,7 @@ This script is capable of installing:
 
 * Usage
 #+BEGIN_SRC :tangle no
-  git clone https://github.com/not-tacit/debian-autosetup
+  git clone https://github.com/noncog/debian-autosetup
   cd debian-autosetup
   chmod +x install.sh
   ./install.sh
@@ -25,6 +25,10 @@ By default, the script is setup to my configuration but is modular and easily cu
 - Just modify the lists with your requirements and they will be installed.
 - Some actions like additional processing of git repositories after download may require custom scripting. 
 
+* About
+The script is created from this README.org using Emacs org-mode literate programming.
+
+That means this README is essentially the shell script, and each section here is how you perform each action. 
 * Debian Sources
 #+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash"
   debian_sources=(
@@ -175,7 +179,7 @@ I manage my dotfiles using a git --bare repository. This allows me to automatica
 For more information see.
 #+BEGIN_SRC sh :tangle install.sh
   # clone dotfiles
-  git clone --bare https://github.com/not-tacit/.dotfiles $HOME/.dotfiles
+  git clone --bare https://github.com/noncog/.dotfiles $HOME/.dotfiles
 
   # checkout will backup dotfiles in the way
   cd ${HOME}
