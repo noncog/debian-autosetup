@@ -21,9 +21,11 @@ apt_package_sources=(
     kitty
     unzip
     scrot
+    obs-studio
     # editors
     emacs
     vim
+    gimp
     # programs
     firefox-esr
     anki
