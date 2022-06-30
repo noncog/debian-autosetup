@@ -215,4 +215,19 @@ For more information and how to setup, see my [[https://github.com/noncog/.dotfi
   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 #+END_SRC
 
+* Custom / After Install
+I use this section to remind myself of what else needs done to configure my system.
+
+These notes go into a separate file I can reference after installation. 
+#+BEGIN_SRC sh :tangle after_install.sh :shebang "#!/bin/bash"
+  echo "1. Set lxappearance theme"
+  echo "2. Configure wifi"
+  echo "3. Install i3-gaps"
+  echo "4. Configure Firefox"
+  echo "- Setup Firefox Secure Profile: https://ffprofile.com/"
+  echo "- Install BitWarden extension: https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/"
+  echo "- Install Decentraleyes extension: https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/"
+  echo "- Install Ublock Origin extension: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
+  echo "Open URLs in Kitty: Ctrl+Shift+e"
+#+END_SRC
 
