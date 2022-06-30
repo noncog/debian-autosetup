@@ -102,7 +102,7 @@ That means:
 #+END_SRC
 
 * Git Sources
-I use git to source my theme,i3-gaps for debian, and my wallpapers. The installer can clone any repo into ~/Downloads. It is up to you to process the downloaded content yourself.
+I use git to source my theme, i3-gaps for debian, and my wallpapers. The installer can clone any repo into ~/Downloads. It is up to you to process the downloaded content yourself.
 #+BEGIN_SRC sh :tangle install.sh
   git_sources=(
       # gtk - dracula theme - other theming done in configs themselves
