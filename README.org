@@ -237,6 +237,7 @@ These notes go into a separate file I can reference after installation.
   echo "5. Install CLion"
   echo "6. Install Pycharm"
   echo "7. Install Tor"
+  echo "8. Install yt-dlp"
 #+END_SRC
 
 * Prerequisite
