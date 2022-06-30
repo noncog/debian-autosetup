@@ -130,7 +130,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
   sudo flatpak install -y flathub ${flatpak_package_list[@]}
 #+END_SRC
 ** Fonts
-Note: If your fonts won't work, (they should) then they may need permissions modified. Use chmod 644 on them.
+Note: If your fonts won't work, (they should) then their permissions may need modified. Use chmod 644 on them.
 #+BEGIN_SRC sh :tangle install.sh
   # create downloads folder
   mkdir ${HOME}/Downloads
