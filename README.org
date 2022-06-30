@@ -13,6 +13,7 @@ This script is capable of installing:
 - Dotfiles managed with git --bare repositories ... see dotfiles section for more info.
 
 * Usage
+See the prerequisite section below for minimal install setup before doing the following:
 #+BEGIN_SRC :tangle no
   git clone https://github.com/noncog/debian-autosetup
   cd debian-autosetup
@@ -129,6 +130,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
   sudo flatpak install -y flathub ${flatpak_package_list[@]}
 #+END_SRC
 ** Fonts
+Note: If your fonts won't work, (they should) then they may need permissions modified. Use chmod 644 on them.
 #+BEGIN_SRC sh :tangle install.sh
   # create downloads folder
   mkdir ${HOME}/Downloads
@@ -230,5 +232,15 @@ These notes go into a separate file I can reference after installation.
   echo "- Install Ublock Origin extension: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
   echo "- Install Dracula theme extension: https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/"
   echo "Open URLs in Kitty: Ctrl+Shift+e"
+#+END_SRC
+
+* Prerequisite
+On a minimal install system you will need to do the following before cloning this repository and using it.
+#+BEGIN_SRC sh :tangle no
+  su -
+  apt install sudo
+  sudo adduser <username> sudo
+  reboot
+  sudo apt install git
 #+END_SRC
 
