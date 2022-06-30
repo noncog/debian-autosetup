@@ -108,6 +108,8 @@ I use git to source my theme and i3-gaps for debian. The installer can clone any
       https://github.com/dracula/gtk
       # i3-gaps debian
       https://github.com/maestrogerardo/i3-gaps-deb
+      # my wallpaper repository
+      https://github.com/noncog/wallpapers
   )
   #+END_SRC
 
@@ -177,6 +179,20 @@ I use git to source my theme and i3-gaps for debian. The installer can clone any
   # move and copy theme files to where they go
   mv ${HOME}/Downloads/gtk $themes_dir
 #+END_SRC
+** Wallpapers
+#+BEGIN_SRC sh :tangle install.sh
+  # create/check wallpaper directory
+  wallpapers_dir="${HOME}/Pictures"
+  if [ ! -d "${wallpapers_dir}" ]; then
+      echo "mkdir -p $wallpapers_dir"
+      mkdir -p "${wallpapers_dir}"
+  else
+      echo "Found wallpapers dir $wallpapers_dir"
+  fi
+
+  # move and copy theme files to where they go
+  mv ${HOME}/Downloads/wallpapers $wallpapers_dir
+#+END_SRC
 
 * Dotfiles
 I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from GitHub.
@@ -197,3 +213,5 @@ For more information and how to setup, see my [[https://github.com/noncog/.dotfi
   # hide untracked files
   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 #+END_SRC
+
+
