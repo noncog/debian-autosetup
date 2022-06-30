@@ -244,7 +244,7 @@ On a minimal install system you will need to do the following before cloning thi
   sudo apt install git
 #+END_SRC
 
-* TODO
+* TODO:
 - Add CLion
 - Add Pycharm
 - Add Tor
