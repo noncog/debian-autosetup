@@ -13,7 +13,7 @@ This script is capable of installing:
 - Dotfiles managed with git --bare repositories ... see dotfiles section for more info.
 
 * Usage
-See the prerequisite section below for minimal install setup before doing the following:
+See the prerequisite section below for a minimal install setup before doing the following:
 #+BEGIN_SRC :tangle no
   git clone https://github.com/noncog/debian-autosetup
   cd debian-autosetup
@@ -244,3 +244,12 @@ On a minimal install system you will need to do the following before cloning thi
   sudo apt install git
 #+END_SRC
 
+* TODO
+- Add CLion
+- Add Pycharm
+- Add Tor
+- Develop testing branch without drivers
+- Test on Debian 11
+- Test on Ubuntu
+- Test on Kali
+- Added note about tested on.
