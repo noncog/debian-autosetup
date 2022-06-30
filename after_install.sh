@@ -9,3 +9,6 @@ echo "- Install Decentraleyes extension: https://addons.mozilla.org/en-US/firefo
 echo "- Install Ublock Origin extension: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
 echo "- Install Dracula theme extension: https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/"
 echo "Open URLs in Kitty: Ctrl+Shift+e"
+echo "5. Install CLion"
+echo "6. Install Pycharm"
+echo "7. Install Tor"
