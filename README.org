@@ -9,6 +9,7 @@ This script is capable of installing:
 - Fonts
 - Git Repositories
 - GTK themes
+- Wallpapers
 - Dotfiles managed with git --bare repositories ... see dotfiles section for more info.
 
 * Usage
