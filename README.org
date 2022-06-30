@@ -252,4 +252,4 @@ On a minimal install system you will need to do the following before cloning thi
 - Test on Debian 11
 - Test on Ubuntu
 - Test on Kali
-- Added note about tested on.
+- Add note about tested on.
