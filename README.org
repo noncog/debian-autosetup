@@ -248,9 +248,6 @@ On a minimal install system you will need to do the following before cloning thi
 #+END_SRC
 
 * TODO:
-- Add CLion
-- Add Pycharm
-- Add Tor
 - Develop testing branch without drivers
 - Test on Debian 11
 - Test on Ubuntu
