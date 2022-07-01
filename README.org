@@ -252,7 +252,4 @@ On a minimal install system you will need to do the following before cloning thi
 
 * TODO:
 - Develop testing branch without drivers
-- Test on Debian 11
-- Test on Ubuntu
-- Test on Kali
 - Add note about tested on.
