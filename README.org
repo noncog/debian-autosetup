@@ -17,7 +17,6 @@ See the prerequisite section below for a minimal install setup before doing the 
 #+BEGIN_SRC :tangle no
   git clone https://github.com/noncog/debian-autosetup
   cd debian-autosetup
-  chmod +x install.sh
   ./install.sh
 #+END_SRC
 
@@ -120,8 +119,9 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
 * Install
 ** Debian Sources
 #+BEGIN_SRC sh :tangle install.sh
-    appended_sources=${debian_sources[@]}
-    sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+  appended_sources=${debian_sources[@]}
+  sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+  sudo apt update
 #+END_SRC
 ** Apt Packages
 #+BEGIN_SRC sh :tangle install.sh
@@ -131,6 +131,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
 #+END_SRC
 ** Flatpak/Flathub Packages
 #+BEGIN_SRC sh :tangle install.sh
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   for package in "${flatpak_package_list[@]}"; do
       sudo flatpak install -y flathub $package
   done

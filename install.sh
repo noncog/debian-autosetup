@@ -68,11 +68,13 @@ git_sources=(
 
 appended_sources=${debian_sources[@]}
 sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+sudo apt update
 
 for package in "${apt_package_list[@]}"; do
     sudo apt install -y $package
 done
 
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 for package in "${flatpak_package_list[@]}"; do
     sudo flatpak install -y flathub $package
 done
