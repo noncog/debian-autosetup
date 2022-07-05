@@ -69,9 +69,13 @@ git_sources=(
 appended_sources=${debian_sources[@]}
 sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
 
-sudo apt install -y ${apt_package_list[@]}
+for package in "${apt_package_list[@]}"; do
+    sudo apt install -y $package
+done
 
-sudo flatpak install -y flathub ${flatpak_package_list[@]}
+for package in "${flatpak_package_list[@]}"; do
+    sudo flatpak install -y flathub $package
+done
 
 # create downloads folder
 mkdir ${HOME}/Downloads
