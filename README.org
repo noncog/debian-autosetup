@@ -44,7 +44,7 @@ That means:
 
 * Apt Packages
 #+BEGIN_SRC sh :tangle install.sh
-  apt_package_sources=(
+  apt_package_list=(
       # gui
       xorg
       i3-wm
@@ -86,7 +86,7 @@ That means:
 
 * Flatpak/Flathub Packages
 #+BEGIN_SRC sh :tangle install.sh
-  flatpak_package_list(
+  flatpak_package_list=(
       # discord
       com.discordapp.Discord
       # spotify
