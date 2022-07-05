@@ -43,7 +43,7 @@ apt_package_sources=(
     firmware-misc-nonfree
 )
 
-flatpak_package_list(
+flatpak_package_list=(
     # discord
     com.discordapp.Discord
     # spotify
@@ -53,6 +53,8 @@ flatpak_package_list(
 font_sources=(
     # Fira Code
     https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+
+
     # Font Awesome 5
     https://github.com/FortAwesome/Font-Awesome/releases/download/5.15.4/fontawesome-free-5.15.4-desktop.zip
 )
