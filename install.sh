@@ -170,7 +170,7 @@ install_dotfiles() {
 }
 
 # define script - used to specify script to run after restart
-script="bash $HOME/testing_bash/testing_bash.sh"
+script="bash $HOME/debian_autosetup/install.sh"
 
 # check if reboot flag exists
 if [ ! -f $HOME/resume-after-reboot ]; then

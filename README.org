@@ -263,7 +263,7 @@ These notes go into a separate file I can reference after installation.
 * Main Installer With Restart Ability
 #+BEGIN_SRC sh :tangle install.sh
   # define script - used to specify script to run after restart
-  script="bash $HOME/testing_bash/testing_bash.sh"
+  script="bash $HOME/debian_autosetup/install.sh"
 
   # check if reboot flag exists
   if [ ! -f $HOME/resume-after-reboot ]; then
