@@ -123,7 +123,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
       # preprocess the user source list
       appended_sources=${debian_sources[@]}
       # add to source list and update
-      sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+      sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
       sudo apt update
   }
 #+END_SRC

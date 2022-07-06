@@ -70,7 +70,7 @@ install_debian_sources() {
     # preprocess the user source list
     appended_sources=${debian_sources[@]}
     # add to source list and update
-    sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+    sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
     sudo apt update
 }
 
