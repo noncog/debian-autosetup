@@ -248,7 +248,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
   }
 #+END_SRC
 
-* Dotfiles
+** Dotfiles
 I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from GitHub.
 For more information and how to setup, see my [[https://github.com/noncog/.dotfiles][dotfiles-repository]].
 #+BEGIN_SRC sh :tangle install.sh
