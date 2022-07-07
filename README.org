@@ -10,7 +10,9 @@ This script is capable of installing:
 - Git Repositories
 - GTK themes
 - Wallpapers
+- i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]].
 - Dotfiles managed with git --bare repositories ... see dotfiles section for more info.
+- Apps or settings that require a restart
 
 * Usage
 See the prerequisite section below for a minimal install setup before doing the following:
@@ -251,7 +253,6 @@ I use this section to remind myself of what else needs to be done to configure m
 
 These notes go into a separate file I can reference after installation. 
 #+BEGIN_SRC sh :tangle after_install.sh :shebang "#!/bin/bash"
-  echo "1. Install i3-gaps"
   echo "2. Configure wifi"
   echo "3. Set lxappearance theme"
   echo "4. Configure Firefox"
