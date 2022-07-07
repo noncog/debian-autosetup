@@ -219,7 +219,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       fi
       
       # move and copy theme files to where they go
-      mv ${HOME}/Downloads/gtk $themes_dir
+      mv ${HOME}/Downloads/gtk $themes_dir/Dracula
   }
 #+END_SRC
 
