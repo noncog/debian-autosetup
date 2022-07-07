@@ -15,6 +15,9 @@ This script is capable of installing:
 - Dotfiles managed with git --bare repositories ... see dotfiles section for more info
 - Apps or settings that require a restart
 
+Tested on:
+- Debian 11
+
 * Usage
 ** Prerequisites
 On a minimal install system you will need to do the following before cloning this repository and using it:
@@ -347,9 +350,3 @@ These notes go into a separate file I can reference after installation.
   echo "5. Install Tor"
   echo "6. Install yt-dlp"
 #+END_SRC
-
-* TODO:
-** TODO Test on Debian 11
-** TODO Test on Ubuntu 22
-** TODO Test on Kali
-** TODO Add note on tested with:
