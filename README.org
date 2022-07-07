@@ -15,7 +15,7 @@ This script is capable of installing:
 - Apps or settings that require a restart
 
 * Usage
-** Prerequisite
+** Prerequisites
 On a minimal install system you will need to do the following before cloning this repository and using it:
 #+BEGIN_SRC sh :tangle no
   su -
@@ -47,7 +47,8 @@ That means:
 - The README is the shell script.
 - Each section documents part of the shell script.
 - You can use this README to learn how the script functions, to customize it, or build your own.
-* Debian Sources
+* Sources
+** Debian Sources
 #+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash"
   debian_sources=(
       contrib
@@ -55,7 +56,7 @@ That means:
   )
 #+END_SRC
 
-* Apt Packages
+** Apt Packages
 #+BEGIN_SRC sh :tangle install.sh
   apt_package_list=(
       # gui
@@ -97,7 +98,7 @@ That means:
   )
 #+END_SRC
 
-* Flatpak/Flathub Packages
+** Flatpak/Flathub Packages
 #+BEGIN_SRC sh :tangle install.sh
   flatpak_package_list=(
       # discord
@@ -107,7 +108,7 @@ That means:
   )
 #+END_SRC
 
-* Font Sources
+** Font Sources
 #+BEGIN_SRC sh :tangle install.sh
   font_sources=(
       # Fira Code
@@ -117,7 +118,7 @@ That means:
   )
 #+END_SRC
 
-* Git Sources
+** Git Sources
 I use git to source my theme, i3-gaps for debian, and my wallpapers. The installer can clone any repo into ~/Downloads. It is up to you to process the downloaded content yourself.
 #+BEGIN_SRC sh :tangle install.sh
   git_sources=(
