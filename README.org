@@ -314,19 +314,18 @@ I use this section to remind myself of what else needs to be done to configure m
 
 These notes go into a separate file I can reference after installation. 
 #+BEGIN_SRC sh :tangle after_install.sh :shebang "#!/bin/bash"
-  echo "1. Configure wifi"
-  echo "2. Set lxappearance theme"
-  echo "3. Configure Firefox"
+  echo "1. Set lxappearance theme"
+  echo "2. Configure Firefox"
   echo "- Setup Firefox Secure Profile: https://ffprofile.com/"
   echo "- Install BitWarden extension: https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/"
   echo "- Install Decentraleyes extension: https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/"
   echo "- Install Ublock Origin extension: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
   echo "- Install Dracula theme extension: https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/"
   echo "Open URLs in Kitty: Ctrl+Shift+e"
-  echo "4. Install CLion"
-  echo "5. Install Pycharm"
-  echo "6. Install Tor"
-  echo "7. Install yt-dlp"
+  echo "3. Install CLion"
+  echo "4. Install Pycharm"
+  echo "5. Install Tor"
+  echo "6. Install yt-dlp"
 #+END_SRC
 
 * TODO:
