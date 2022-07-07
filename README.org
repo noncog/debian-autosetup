@@ -10,11 +10,21 @@ This script is capable of installing:
 - Git Repositories
 - GTK themes
 - Wallpapers
-- i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]].
-- Dotfiles managed with git --bare repositories ... see dotfiles section for more info.
+- i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]]
+- Dotfiles managed with git --bare repositories ... see dotfiles section for more info
 - Apps or settings that require a restart
 
 * Usage
+** Prerequisite
+On a minimal install system you will need to do the following before cloning this repository and using it.
+#+BEGIN_SRC sh :tangle no
+  su -
+  apt install sudo
+  sudo adduser <username> sudo
+  reboot
+  sudo apt install git
+#+END_SRC
+
 See the prerequisite section below for a minimal install setup before doing the following:
 #+BEGIN_SRC :tangle no
   git clone https://github.com/noncog/debian-autosetup
@@ -22,11 +32,12 @@ See the prerequisite section below for a minimal install setup before doing the 
   ./install.sh
 #+END_SRC
 
-* Customization
+** Customization
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists with your requirements and they will be installed.
-- Some actions like additional processing of Git repositories after download may require custom scripting. 
+- Some actions like additional processing of Git repositories after download may require custom scripting.
+- If you want to disable sections (e.g., Flatpak/Flathub), remove it's install function call from the Main Installer section (i.e., install_flatpak_packages).
 
 * About
 The install.sh bash script is created from this README.org file using Emacs org-mode literate programming.
@@ -129,6 +140,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
       sudo apt update
   }
 #+END_SRC
+
 ** Apt Packages
 #+BEGIN_SRC sh :tangle install.sh
   install_apt_packages() {
@@ -137,6 +149,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
       done
   }
 #+END_SRC
+
 ** Flatpak/Flathub Packages
 #+BEGIN_SRC sh :tangle install.sh
   install_flatpak_packages() {
@@ -145,6 +158,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
       done
   }
 #+END_SRC
+
 ** Fonts
 Note: If your fonts won't work, (they should) then their permissions may need modified. Use chmod 644 on them.
 #+BEGIN_SRC sh :tangle install.sh
@@ -178,6 +192,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       fc-cache -f
   }
 #+END_SRC
+
 ** Git Repositories
 #+BEGIN_SRC sh :tangle install.sh
   install_git_repositories() {
@@ -188,6 +203,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       done
   }
 #+END_SRC
+
 ** Theme
 #+BEGIN_SRC sh :tangle install.sh
   install_theme() {
@@ -204,6 +220,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       mv ${HOME}/Downloads/gtk $themes_dir
   }
 #+END_SRC
+
 ** Wallpapers
 #+BEGIN_SRC sh :tangle install.sh
   install_wallpapers() {
@@ -220,6 +237,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       mv ${HOME}/Downloads/wallpapers $wallpapers_dir
   }
 #+END_SRC
+
 ** i3-gaps-deb
 #+BEGIN_SRC sh :tangle install.sh
   install_i3-gaps-deb() {
@@ -227,6 +245,7 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       /bin/bash i3-gaps-deb
   }
 #+END_SRC
+
 * Dotfiles
 I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from GitHub.
 For more information and how to setup, see my [[https://github.com/noncog/.dotfiles][dotfiles-repository]].
@@ -247,25 +266,6 @@ For more information and how to setup, see my [[https://github.com/noncog/.dotfi
       # hide untracked files
       /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
   }
-#+END_SRC
-* Custom Notes / After Install
-I use this section to remind myself of what else needs to be done to configure my system.
-
-These notes go into a separate file I can reference after installation. 
-#+BEGIN_SRC sh :tangle after_install.sh :shebang "#!/bin/bash"
-  echo "2. Configure wifi"
-  echo "3. Set lxappearance theme"
-  echo "4. Configure Firefox"
-  echo "- Setup Firefox Secure Profile: https://ffprofile.com/"
-  echo "- Install BitWarden extension: https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/"
-  echo "- Install Decentraleyes extension: https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/"
-  echo "- Install Ublock Origin extension: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
-  echo "- Install Dracula theme extension: https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/"
-  echo "Open URLs in Kitty: Ctrl+Shift+e"
-  echo "5. Install CLion"
-  echo "6. Install Pycharm"
-  echo "7. Install Tor"
-  echo "8. Install yt-dlp"
 #+END_SRC
 
 * Main Installer With Restart Ability
@@ -306,14 +306,25 @@ These notes go into a separate file I can reference after installation.
       install_dotfiles
   fi
 #+END_SRC
-* Prerequisite
-On a minimal install system you will need to do the following before cloning this repository and using it.
-#+BEGIN_SRC sh :tangle no
-  su -
-  apt install sudo
-  sudo adduser <username> sudo
-  reboot
-  sudo apt install git
+
+* Custom Notes / After Install
+I use this section to remind myself of what else needs to be done to configure my system.
+
+These notes go into a separate file I can reference after installation. 
+#+BEGIN_SRC sh :tangle after_install.sh :shebang "#!/bin/bash"
+  echo "1. Configure wifi"
+  echo "2. Set lxappearance theme"
+  echo "3. Configure Firefox"
+  echo "- Setup Firefox Secure Profile: https://ffprofile.com/"
+  echo "- Install BitWarden extension: https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/"
+  echo "- Install Decentraleyes extension: https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/"
+  echo "- Install Ublock Origin extension: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/"
+  echo "- Install Dracula theme extension: https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/"
+  echo "Open URLs in Kitty: Ctrl+Shift+e"
+  echo "4. Install CLion"
+  echo "5. Install Pycharm"
+  echo "6. Install Tor"
+  echo "7. Install yt-dlp"
 #+END_SRC
 
 * TODO:
