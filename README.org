@@ -24,7 +24,7 @@ On a minimal install system you will need to do the following before cloning thi
   reboot
   sudo apt install git
 #+END_SRC
-** Cloning and Using As Is
+** Cloning and Using
 #+BEGIN_SRC :tangle no
   git clone https://github.com/noncog/debian-autosetup
   cd debian-autosetup
