@@ -16,7 +16,7 @@ This script is capable of installing:
 
 * Usage
 ** Prerequisite
-On a minimal install system you will need to do the following before cloning this repository and using it.
+On a minimal install system you will need to do the following before cloning this repository and using it:
 #+BEGIN_SRC sh :tangle no
   su -
   apt install sudo
@@ -24,8 +24,7 @@ On a minimal install system you will need to do the following before cloning thi
   reboot
   sudo apt install git
 #+END_SRC
-
-See the prerequisite section below for a minimal install setup before doing the following:
+** Cloning and Using As Is
 #+BEGIN_SRC :tangle no
   git clone https://github.com/noncog/debian-autosetup
   cd debian-autosetup
@@ -36,8 +35,10 @@ See the prerequisite section below for a minimal install setup before doing the 
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists with your requirements and they will be installed.
-- Some actions like additional processing of Git repositories after download may require custom scripting.
 - If you want to disable sections (e.g., Flatpak/Flathub), remove it's install function call from the Main Installer section (i.e., install_flatpak_packages).
+- Some actions like additional processing of Git repositories after download may require custom scripting.
+
+Additionally, you can fork this repository, to make customizations and clone your own repository!
 
 * About
 The install.sh bash script is created from this README.org file using Emacs org-mode literate programming.
