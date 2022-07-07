@@ -1,6 +1,6 @@
 #+TITLE:debian-autosetup
 
-A simple bash script (compatible with Debian-based distributions) to install software and configure your dotfiles after a fresh install.
+A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based distributions) to install software and configure your dotfiles after a fresh install.
 
 This script is capable of installing:
 - Debian sources
@@ -330,5 +330,9 @@ These notes go into a separate file I can reference after installation.
 #+END_SRC
 
 * TODO:
-- Develop testing branch without drivers
-- Add note about tested on.
+** TODO Develop a logo
+** TODO Add logo to repository
+** TODO Test on Debian 11
+** TODO Test on Ubuntu 22
+** TODO Test on Kali
+** TODO Add note on tested with:
