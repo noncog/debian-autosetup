@@ -330,8 +330,6 @@ These notes go into a separate file I can reference after installation.
 #+END_SRC
 
 * TODO:
-** TODO Develop a logo
-** TODO Add logo to repository
 ** TODO Test on Debian 11
 ** TODO Test on Ubuntu 22
 ** TODO Test on Kali
