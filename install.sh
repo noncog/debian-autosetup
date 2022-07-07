@@ -152,6 +152,11 @@ install_wallpapers() {
     mv ${HOME}/Downloads/wallpapers $wallpapers_dir
 }
 
+install_i3-gaps-deb() {
+    cd $HOME/Downloads/i3-gaps-deb
+    /bin/bash i3-gaps-deb
+}
+
 install_dotfiles() {
     # clone dotfiles
     git clone --bare https://github.com/noncog/.dotfiles $HOME/.dotfiles
@@ -201,5 +206,6 @@ else
     install_git_repositories
     install_theme
     install_wallpapers
+    install_i3-gaps-deb
     install_dotfiles
 fi

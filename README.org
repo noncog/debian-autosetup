@@ -218,6 +218,13 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
       mv ${HOME}/Downloads/wallpapers $wallpapers_dir
   }
 #+END_SRC
+** i3-gaps-deb
+#+BEGIN_SRC sh :tangle install.sh
+  install_i3-gaps-deb() {
+      cd $HOME/Downloads/i3-gaps-deb
+      /bin/bash i3-gaps-deb
+  }
+#+END_SRC
 * Dotfiles
 I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from GitHub.
 For more information and how to setup, see my [[https://github.com/noncog/.dotfiles][dotfiles-repository]].
@@ -294,6 +301,7 @@ These notes go into a separate file I can reference after installation.
       install_git_repositories
       install_theme
       install_wallpapers
+      install_i3-gaps-deb
       install_dotfiles
   fi
 #+END_SRC
