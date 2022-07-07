@@ -6,6 +6,7 @@ This script is capable of installing:
 - Debian sources
 - Apt packages
 - Flatpak/Flathub packages
+- Directories
 - Fonts
 - Git Repositories
 - GTK themes
@@ -108,6 +109,18 @@ That means:
   )
 #+END_SRC
 
+** Directories
+#+BEGIN_SRC sh :tangle install.sh
+  directory_list=(
+      $HOME/Books
+      $HOME/Documents
+      $HOME/Downloads
+      $HOME/Pictures
+      $HOME/Projects
+      $HOME/Videos
+  )
+#+END_SRC
+
 ** Font Sources
 #+BEGIN_SRC sh :tangle install.sh
   font_sources=(
@@ -129,7 +142,7 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
       # my wallpaper repository
       https://github.com/noncog/wallpapers
   )
-  #+END_SRC
+#+END_SRC
 
 * Install Functions
 ** Debian Sources
@@ -161,13 +174,19 @@ I use git to source my theme, i3-gaps for debian, and my wallpapers. The install
   }
 #+END_SRC
 
+** Directories
+#+BEGIN_SRC sh :tangle install.sh
+  install_directories() {
+      for directory in "${directory_list[@]}"; do
+          mkdir $directory
+      done
+  }
+#+END_SRC
+
 ** Fonts
 Note: If your fonts won't work, (they should) then their permissions may need modified. Use chmod 644 on them.
 #+BEGIN_SRC sh :tangle install.sh
   install_fonts() {
-      # create downloads folder
-      mkdir ${HOME}/Downloads
-
       # download fonts
       for url in "${font_sources[@]}"; do
           wget -P ${HOME}/Downloads/fonts $url
@@ -300,6 +319,7 @@ For more information and how to setup your own, see my [[https://github.com/nonc
 
       # continue with installation post-resume:
       install_flatpak_packages
+      install_directories
       install_fonts
       install_git_repositories
       install_theme

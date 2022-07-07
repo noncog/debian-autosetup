@@ -50,6 +50,15 @@ flatpak_package_list=(
     com.spotify.Client
 )
 
+directory_list=(
+    $HOME/Books
+    $HOME/Documents
+    $HOME/Downloads
+    $HOME/Pictures
+    $HOME/Projects
+    $HOME/Videos
+)
+
 font_sources=(
     # Fira Code
     https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
@@ -86,10 +95,13 @@ install_flatpak_packages() {
     done
 }
 
-install_fonts() {
-    # create downloads folder
-    mkdir ${HOME}/Downloads
+install_directories() {
+    for directory in "${directory_list[@]}"; do
+        mkdir $directory
+    done
+}
 
+install_fonts() {
     # download fonts
     for url in "${font_sources[@]}"; do
         wget -P ${HOME}/Downloads/fonts $url
@@ -135,7 +147,7 @@ install_theme() {
     fi
 
     # move and copy theme files to where they go
-    mv ${HOME}/Downloads/gtk $themes_dir
+    mv ${HOME}/Downloads/gtk $themes_dir/Dracula
 }
 
 install_wallpapers() {
@@ -202,6 +214,7 @@ else
 
     # continue with installation post-resume:
     install_flatpak_packages
+    install_directories
     install_fonts
     install_git_repositories
     install_theme
