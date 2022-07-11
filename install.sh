@@ -49,8 +49,6 @@ flatpak_package_list=(
     com.discordapp.Discord
     # spotify
     com.spotify.Client
-    # dejadup
-    org.gnome.DejaDup
 )
 
 directory_list=(
