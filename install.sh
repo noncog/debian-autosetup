@@ -99,7 +99,7 @@ install_flatpak_packages() {
 
 install_directories() {
     for directory in "${directory_list[@]}"; do
-        mkdir -P $directory
+        mkdir -p $directory
     done
 }
 
