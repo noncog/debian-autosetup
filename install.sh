@@ -58,6 +58,7 @@ directory_list=(
     $HOME/Pictures
     $HOME/Projects
     $HOME/Videos
+    $HOME/.emacs.d/file-backups
 )
 
 font_sources=(
@@ -98,7 +99,7 @@ install_flatpak_packages() {
 
 install_directories() {
     for directory in "${directory_list[@]}"; do
-        mkdir $directory
+        mkdir -P $directory
     done
 }
 
