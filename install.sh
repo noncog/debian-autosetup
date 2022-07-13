@@ -33,7 +33,6 @@ apt_package_list=(
     # media
     ranger
     sxiv
-    zathura
     vlc
     # other
     flatpak
