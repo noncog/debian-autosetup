@@ -23,8 +23,8 @@ apt_package_list=(
     scrot
     obs-studio
     neofetch
+	ssh
     borgbackup
-    borgmatic
     # editors
     emacs
     vim
