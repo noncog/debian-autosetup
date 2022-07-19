@@ -86,14 +86,14 @@ apt_package_list=(
     # editors
     emacs
     vim
-    gimp
     # programs
     firefox-esr
     anki
-    # media
+    # files and media
     ranger
     sxiv
     vlc
+	gimp
     # other
     flatpak
     # drivers
