@@ -22,7 +22,7 @@ apt_package_list=(
     unzip
     scrot
     obs-studio
-    neofetch
+	neofetch
 	ssh
     borgbackup
     # editors
@@ -34,7 +34,7 @@ apt_package_list=(
     # files and media
     ranger
     sxiv
-    vlc
+	vlc
 	gimp
     # other
     flatpak

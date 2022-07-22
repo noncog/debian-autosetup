@@ -62,8 +62,44 @@ debian_sources=(
 ** Apt Packages
 #+BEGIN_SRC sh :tangle install.sh
 apt_package_list=(
-    #gui
+    # gui
     xorg
+    i3-wm
+    dunst
+    rofi
+    polybar
+    picom
+    nitrogen
+    lxappearance
+    # utilities/tools
+    pulseaudio
+    network-manager
+    network-manager-gnome
+    kitty
+    unzip
+    scrot
+    obs-studio
+	neofetch
+	ssh
+    borgbackup
+    # editors
+    emacs
+    vim
+    # programs
+    firefox-esr
+    anki
+    # files and media
+    ranger
+    sxiv
+	vlc
+	gimp
+    # other
+    flatpak
+    # drivers
+    firmware-iwlwifi
+    linux-headers-amd64
+    nvidia-driver
+    firmware-misc-nonfree
 )
 #+END_SRC
 
