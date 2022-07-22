@@ -74,8 +74,6 @@ git_sources=(
     https://github.com/dracula/gtk
     # i3-gaps debian
     https://github.com/maestrogerardo/i3-gaps-deb
-    # my wallpaper repository
-    https://github.com/noncog/wallpapers
 )
 
 install_debian_sources() {
@@ -151,20 +149,6 @@ install_theme() {
 
     # move and copy theme files to where they go
     mv ${HOME}/Downloads/gtk $themes_dir/Dracula
-}
-
-install_wallpapers() {
-    # create/check wallpaper directory
-    wallpapers_dir="${HOME}/Pictures"
-    if [ ! -d "${wallpapers_dir}" ]; then
-        echo "mkdir -p $wallpapers_dir"
-        mkdir -p "${wallpapers_dir}"
-    else
-        echo "Found wallpapers dir $wallpapers_dir"
-    fi
-
-    # move and copy theme files to where they go
-    mv ${HOME}/Downloads/wallpapers $wallpapers_dir
 }
 
 install_i3-gaps-deb() {
