@@ -24,10 +24,10 @@ apt_package_list=(
     obs-studio
 	neofetch
 	ssh
-    borgbackup
+	borgbackup
     # editors
-    emacs
-    vim
+	emacs
+	vim
     # programs
     firefox-esr
     anki
