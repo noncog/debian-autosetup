@@ -22,6 +22,7 @@ apt_package_list=(
     unzip
     scrot
     obs-studio
+    ffmpeg
     neofetch
     ssh
     borgbackup
