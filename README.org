@@ -62,8 +62,8 @@ debian_sources=(
 ** Apt Packages
 #+BEGIN_SRC sh :tangle install.sh
 apt_package_list=(
-	#gui
-	xorg
+    #gui
+    xorg
 )
 #+END_SRC
 
