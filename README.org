@@ -38,10 +38,10 @@ cd debian-autosetup
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists with your requirements and they will be installed.
-- If you want to disable sections (e.g., Flatpak/Flathub), remove it's install function call from the Main Installer section (i.e., install_flatpak_packages).
+- If you want to disable sections (e.g., Flatpak/Flathub), comment out or remove it's install function call from the Main Installer section (i.e., install_flatpak_packages).
 - Some actions like additional processing of Git repositories after download may require custom scripting.
 
-Additionally, you can fork this repository, to make customizations and clone your own repository!
+Additionally, you can fork this repository, to make customizations, clone, and version control your own repository!
 
 * About
 The install.sh bash script is created from this README.org file using Emacs org-mode literate programming.
