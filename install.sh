@@ -22,9 +22,9 @@ apt_package_list=(
     unzip
     scrot
     obs-studio
-	neofetch
-	ssh
-	borgbackup
+    neofetch
+    ssh
+    borgbackup
     # editors
 	emacs
 	vim
@@ -34,9 +34,9 @@ apt_package_list=(
     # files and media
     ranger
     sxiv
-	vlc
-	gimp
-	tasdf
+    vlc
+    gimp
+    tasdf
     # other
     flatpak
     # drivers
