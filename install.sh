@@ -26,8 +26,8 @@ apt_package_list=(
     ssh
     borgbackup
     # editors
-	emacs
-	vim
+    emacs
+    vim
     # programs
     firefox-esr
     anki
