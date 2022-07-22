@@ -36,6 +36,7 @@ apt_package_list=(
     sxiv
 	vlc
 	gimp
+	tasdf
     # other
     flatpak
     # drivers
