@@ -79,9 +79,9 @@ apt_package_list=(
     unzip
     scrot
     obs-studio
-	neofetch
-	ssh
-	borgbackup
+    neofetch
+    ssh
+    borgbackup
     # editors
 	emacs
 	vim
