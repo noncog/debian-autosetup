@@ -59,6 +59,7 @@ directory_list=(
     $HOME/documents
     $HOME/downloads
     $HOME/pictures
+    $HOME/pictures/archive
     $HOME/projects
     $HOME/videos
 )
@@ -106,11 +107,11 @@ install_directories() {
 install_fonts() {
     # download fonts
     for url in "${font_sources[@]}"; do
-        wget -P ${HOME}/Downloads/fonts $url
+        wget -P ${HOME}/downloads/fonts $url
     done
 
     # unzip fonts
-    cd ${HOME}/Downloads/fonts
+    cd ${HOME}/downloads/fonts
     unzip "*.zip"
 
     # create/check fonts directory
@@ -123,8 +124,8 @@ install_fonts() {
     fi
 
     # find and copy fonts to font directory
-    find ${HOME}/Downloads/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
-    find ${HOME}/Downloads/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
+    find ${HOME}/downloads/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
+    find ${HOME}/downloads/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
 
     # reload font cache
     fc-cache -f
@@ -132,7 +133,7 @@ install_fonts() {
 
 install_git_repositories() {
     # clone git repositories
-    cd ${HOME}/Downloads
+    cd ${HOME}/downloads
     for url in "${git_sources[@]}"; do
         git clone $url
     done
@@ -149,11 +150,11 @@ install_theme() {
     fi
 
     # move and copy theme files to where they go
-    mv ${HOME}/Downloads/gtk $themes_dir/Dracula
+    mv ${HOME}/downloads/gtk $themes_dir/Dracula
 }
 
 install_i3-gaps-deb() {
-    cd $HOME/Downloads/i3-gaps-deb
+    cd $HOME/downloads/i3-gaps-deb
     /bin/bash i3-gaps-deb
 }
 

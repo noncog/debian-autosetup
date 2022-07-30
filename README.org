@@ -122,6 +122,7 @@ directory_list=(
     $HOME/documents
     $HOME/downloads
     $HOME/pictures
+    $HOME/pictures/archive
     $HOME/projects
     $HOME/videos
 )
