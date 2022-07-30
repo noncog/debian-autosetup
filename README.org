@@ -10,6 +10,7 @@ This script is capable of installing:
 - Fonts
 - Git Repositories
 - GTK themes
+- Chemacs2
 - i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]]
 - Dotfiles managed with git --bare repositories ... see dotfiles section for more info
 - Apps or settings that require a restart
@@ -247,6 +248,15 @@ install_theme() {
 }
 #+END_SRC
 
+** Chemacs2
+#+BEGIN_SRC sh :tangle install.sh
+install_chemacs() {
+    [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
+    [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.bak
+    git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+}
+#+END_SRC
+
 ** i3-gaps-deb
 #+BEGIN_SRC sh :tangle install.sh
 install_i3-gaps-deb() {
@@ -311,7 +321,7 @@ else
     install_fonts
     install_git_repositories
     install_theme
-    install_wallpapers
+    install_chemacs
     install_i3-gaps-deb
     install_dotfiles
 fi

@@ -153,6 +153,12 @@ install_theme() {
     mv ${HOME}/downloads/gtk $themes_dir/Dracula
 }
 
+install_chemacs() {
+    [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
+    [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.bak
+    git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+}
+
 install_i3-gaps-deb() {
     cd $HOME/downloads/i3-gaps-deb
     /bin/bash i3-gaps-deb
@@ -207,7 +213,7 @@ else
     install_fonts
     install_git_repositories
     install_theme
-    install_wallpapers
+    install_chemacs
     install_i3-gaps-deb
     install_dotfiles
 fi
