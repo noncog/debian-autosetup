@@ -26,6 +26,7 @@ apt_package_list=(
     neofetch
     ssh
     borgbackup
+    ripgrep
     # editors
     emacs
     vim
@@ -54,13 +55,12 @@ flatpak_package_list=(
 )
 
 directory_list=(
-    $HOME/Books
-    $HOME/Documents
-    $HOME/Downloads
-    $HOME/Pictures
-    $HOME/Projects
-    $HOME/Videos
-    $HOME/.emacs.d/file-backups
+    $HOME/books
+    $HOME/documents
+    $HOME/downloads
+    $HOME/pictures
+    $HOME/projects
+    $HOME/videos
 )
 
 font_sources=(
