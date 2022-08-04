@@ -1,4 +1,6 @@
 #+HTML: <h1 align="center">debian-autosetup</h1>
+#+HTML: <p align="center"><a href="https://www.debian.org/"><img src="https://img.shields.io/badge/Debian-11-critical?style=flat-square&logo=Debian&logoColor=white" /></a> <a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Made_with-Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white" /></a></p>
+
 #+HTML: <p align="center"><img src="debian-auto-setup.png"/></p>
 A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based distributions) to install software and configure your dotfiles after a fresh install.
 
