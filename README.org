@@ -1,4 +1,4 @@
-#+TITLE:debian-autosetup
+#+HTML: <h1 align="center">debian-autosetup<h1>
 #+HTML: <p align="center"><img src="debian-auto-setup.png"/></p>
 A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based distributions) to install software and configure your dotfiles after a fresh install.
 
