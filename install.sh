@@ -54,6 +54,8 @@ flatpak_package_list=(
     com.spotify.Client
 )
 
+downloads_directory=$HOME/downloads
+
 directory_list=(
     $HOME/books
     $HOME/documents
@@ -108,11 +110,11 @@ install_directories() {
 install_fonts() {
     # download fonts
     for url in "${font_sources[@]}"; do
-        wget -P ${HOME}/downloads/fonts $url
+        wget -P $downloads_directory/fonts $url
     done
 
     # unzip fonts
-    cd ${HOME}/downloads/fonts
+    cd $downloads_directory/fonts
     unzip "*.zip"
 
     # create/check fonts directory
@@ -125,8 +127,8 @@ install_fonts() {
     fi
 
     # find and copy fonts to font directory
-    find ${HOME}/downloads/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
-    find ${HOME}/downloads/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
+    find $downloads_directory/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
+    find $downloads_directory/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
 
     # reload font cache
     fc-cache -f
@@ -134,7 +136,7 @@ install_fonts() {
 
 install_git_repositories() {
     # clone git repositories
-    cd ${HOME}/downloads
+    cd $downloads_directory
     for url in "${git_sources[@]}"; do
         git clone $url
     done
@@ -151,7 +153,7 @@ install_theme() {
     fi
 
     # move and copy theme files to where they go
-    mv ${HOME}/downloads/gtk $themes_dir/Dracula
+    mv $downloads_directory/gtk $themes_dir/Dracula
 }
 
 install_chemacs() {
@@ -161,7 +163,7 @@ install_chemacs() {
 }
 
 install_i3-gaps-deb() {
-    cd $HOME/downloads/i3-gaps-deb
+    cd $downloads_directory/i3-gaps-deb
     /bin/bash i3-gaps-deb
 }
 

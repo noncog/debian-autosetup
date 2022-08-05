@@ -119,6 +119,13 @@ flatpak_package_list=(
 #+END_SRC
 
 ** Directories
+*** Downloads Location
+This is the directory the script will download any files into.
+- =NOTE= If this is not a standard system directory, it will also need added to the directory list below.
+#+BEGIN_SRC sh :tangle install.sh
+downloads_directory=$HOME/downloads
+#+END_SRC
+*** To Be Created
 #+BEGIN_SRC sh :tangle install.sh
 directory_list=(
     $HOME/books
@@ -143,7 +150,7 @@ font_sources=(
 #+END_SRC
 
 ** Git Sources
-I use git to source my theme and i3-gaps for debian. The installer can clone any repo into ~/downloads. It is up to you to process the downloaded content yourself.
+I use git to source my theme and i3-gaps for debian. The installer can clone any repo into the downloads directory. It is up to you to process the downloaded content yourself.
 #+BEGIN_SRC sh :tangle install.sh
 git_sources=(
     # gtk - dracula theme - other theming done in configs themselves
@@ -198,11 +205,11 @@ Note: If your fonts won't work, (they should) then their permissions may need mo
 install_fonts() {
     # download fonts
     for url in "${font_sources[@]}"; do
-        wget -P ${HOME}/downloads/fonts $url
+        wget -P $downloads_directory/fonts $url
     done
 
     # unzip fonts
-    cd ${HOME}/downloads/fonts
+    cd $downloads_directory/fonts
     unzip "*.zip"
 
     # create/check fonts directory
@@ -215,8 +222,8 @@ install_fonts() {
     fi
 
     # find and copy fonts to font directory
-    find ${HOME}/downloads/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
-    find ${HOME}/downloads/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
+    find $downloads_directory/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
+    find $downloads_directory/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
 
     # reload font cache
     fc-cache -f
@@ -227,7 +234,7 @@ install_fonts() {
 #+BEGIN_SRC sh :tangle install.sh
 install_git_repositories() {
     # clone git repositories
-    cd ${HOME}/downloads
+    cd $downloads_directory
     for url in "${git_sources[@]}"; do
         git clone $url
     done
@@ -247,7 +254,7 @@ install_theme() {
     fi
 
     # move and copy theme files to where they go
-    mv ${HOME}/downloads/gtk $themes_dir/Dracula
+    mv $downloads_directory/gtk $themes_dir/Dracula
 }
 #+END_SRC
 
@@ -263,7 +270,7 @@ install_chemacs() {
 ** i3-gaps-deb
 #+BEGIN_SRC sh :tangle install.sh
 install_i3-gaps-deb() {
-    cd $HOME/downloads/i3-gaps-deb
+    cd $downloads_directory/i3-gaps-deb
     /bin/bash i3-gaps-deb
 }
 #+END_SRC
