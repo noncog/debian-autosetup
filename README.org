@@ -40,7 +40,7 @@ cd debian-autosetup
 ** Customization
 By default, the script is setup to my configuration but is modular and easily customizable.
 
-- Just modify the lists with your requirements and they will be installed.
+- Just modify the lists (arrays) with your requirements and they will be installed.
 - If you want to disable sections (e.g., Flatpak/Flathub), comment out or remove it's install function call from the Main Installer section (i.e., install_flatpak_packages).
 - Some actions like additional processing of Git repositories after download may require custom scripting.
 
