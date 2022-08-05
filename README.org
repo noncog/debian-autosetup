@@ -47,11 +47,11 @@ By default, the script is setup to my configuration but is modular and easily cu
 Additionally, you can fork this repository, to make customizations, clone, and version control your own repository!
 
 * About
-The install.sh bash script is created from this README.org file using Emacs org-mode literate programming.
+The install.sh bash script is created from this README.org file using Emacs, org-mode, and org-babel's literate programming.
 
 That means:
-- The README is the shell script.
-- Each section documents part of the shell script.
+- The README is the shell script. Effectively making the script self documenting.
+- Each section documents part of the shell script. 
 - You can use this README to learn how the script functions, to customize it, or build your own.
 * Sources
 ** Debian Sources
