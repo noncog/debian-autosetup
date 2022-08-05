@@ -60,6 +60,7 @@ directory_list=(
     $HOME/downloads
     $HOME/pictures
     $HOME/pictures/archive
+    $HOME/pictures/screenshots
     $HOME/projects
     $HOME/videos
 )
