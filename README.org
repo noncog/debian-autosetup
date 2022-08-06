@@ -276,8 +276,8 @@ install_i3-gaps-deb() {
 #+END_SRC
 
 ** Dotfiles
-I manage my dotfiles using a git --bare repository. This allows me to automatically install them where they belong when I clone them from GitHub.
-For more information and how to setup your own, see my [[https://github.com/noncog/.dotfiles][dotfiles repository]].
+I manage my dotfiles using a git --bare repository. In short, this allows me to automatically install them where they belong when I clone them from GitHub.
+For more information and how to setup your own, see my [[https://github.com/noncog/.dotfiles][dotfiles repository]] under the More Information section.
 #+BEGIN_SRC sh :tangle install.sh
 install_dotfiles() {
     # clone dotfiles
