@@ -14,7 +14,7 @@ This script is capable of installing:
 - GTK themes
 - Chemacs2
 - i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]]
-- Dotfiles managed with git --bare repositories ... see [[#dotfiles][dotfiles]] section for more info
+- Dotfiles managed with git --bare repositories ... see [[#dotfiles][dotfiles]] section for more info.
 - Apps or settings that require a restart
 
 Tested on:
