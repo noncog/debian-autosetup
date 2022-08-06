@@ -31,6 +31,7 @@ reboot
 sudo apt install git
 #+END_SRC
 ** Cloning and Using
+Before you run the script you should really customize it.
 #+BEGIN_SRC :tangle no
 git clone https://github.com/noncog/debian-autosetup
 cd debian-autosetup
