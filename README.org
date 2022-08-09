@@ -38,6 +38,10 @@ cd debian-autosetup
 ./install.sh
 #+END_SRC
 
+#+BEGIN_QUOTE
+*Disclaimer:* /Do not run unless you are sure./ This script attempts to install several packages, configurations, and files. This will overwrite your existing configs and place them in =~/.dotfiles-backups=.
+#+END_QUOTE
+
 ** Customization
 By default, the script is setup to my configuration but is modular and easily customizable.
 
