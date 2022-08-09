@@ -52,7 +52,7 @@ By default, the script is setup to my configuration but is modular and easily cu
 Additionally, you can fork this repository, to make customizations, clone, and version control your own repository!
 
 * About
-The install.sh bash script is created from this README.org file using Emacs, org-mode, and org-babel's literate programming.
+The =install.sh= script is created from this =README.org= file using Emacs' org-mode, and org-babel's [[https://leanpub.com/lit-config/read][literate programming]].
 
 That means:
 - The README is the shell script. Effectively making the script self documenting.
@@ -283,7 +283,7 @@ install_i3-gaps-deb() {
 
 ** Dotfiles
 I manage my dotfiles using a git --bare repository. In short, this allows me to automatically install them where they belong when I clone them from GitHub.
-For more information and how to setup your own, see my [[https://github.com/noncog/.dotfiles][dotfiles repository]] under the More Information section.
+For more information and how to setup your own, see my [[https://github.com/noncog/.dotfiles][dotfiles repository]] under the =More Information= section.
 #+BEGIN_SRC sh :tangle install.sh
 install_dotfiles() {
     # clone dotfiles
