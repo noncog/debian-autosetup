@@ -29,6 +29,7 @@ apt_package_list=(
     ripgrep
     # editors
     emacs
+    emacs-common-non-dfsg
     vim
     # programs
     firefox-esr
@@ -86,12 +87,12 @@ install_debian_sources() {
     appended_sources=${debian_sources[@]}
     # add to source list and update
     sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
-    sudo apt update
+    sudo apt-get update
 }
 
 install_apt_packages() {
     for package in "${apt_package_list[@]}"; do
-        sudo apt install -y $package
+        sudo apt-get install -y $package
     done
 }
 
