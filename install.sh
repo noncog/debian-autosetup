@@ -49,8 +49,6 @@ apt_package_list=(
 )
 
 flatpak_package_list=(
-    # discord
-    com.discordapp.Discord
     # spotify
     com.spotify.Client
 )

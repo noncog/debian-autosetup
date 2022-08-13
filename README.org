@@ -117,8 +117,6 @@ apt_package_list=(
 ** Flatpak/Flathub Packages
 #+BEGIN_SRC sh :tangle install.sh
 flatpak_package_list=(
-    # discord
-    com.discordapp.Discord
     # spotify
     com.spotify.Client
 )
