@@ -311,7 +311,7 @@ install_dotfiles() {
 * Main Installer With Restart Ability
 #+BEGIN_SRC sh :tangle install.sh
 # define script - used to specify script to run after restart
-script="bash $HOME/debian-autosetup/install.sh"
+script="sudo bash $HOME/debian-autosetup/install.sh"
 
 # check if reboot flag exists
 if [ ! -f $HOME/resume-after-reboot ]; then
