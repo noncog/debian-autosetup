@@ -310,8 +310,6 @@ install_dotfiles() {
 
 * Main Installer With Restart Ability
 #+BEGIN_SRC sh :tangle install.sh
-# define script - used to specify script to run after restart
-script="sudo bash $HOME/debian-autosetup/install.sh"
 
 # check if reboot flag exists
 if [ ! -f $HOME/resume-after-reboot ]; then
@@ -324,7 +322,7 @@ if [ ! -f $HOME/resume-after-reboot ]; then
 
     # prepare for reboot
     # add script to .bashrc or .zshrc to resume after reboot
-    echo "$script" >> $HOME/.bashrc
+    echo "sudo bash $HOME/debian-autosetup/install.sh" >> $HOME/.bashrc
     # create flag to signify if resuming from reboot
     touch $HOME/resume-after-reboot
     # reboot

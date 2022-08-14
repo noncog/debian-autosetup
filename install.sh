@@ -189,9 +189,6 @@ install_dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 }
 
-# define script - used to specify script to run after restart
-script="sudo bash $HOME/debian-autosetup/install.sh"
-
 # check if reboot flag exists
 if [ ! -f $HOME/resume-after-reboot ]; then
     # run your installer scripts for pre-reboot:
@@ -203,7 +200,7 @@ if [ ! -f $HOME/resume-after-reboot ]; then
 
     # prepare for reboot
     # add script to .bashrc or .zshrc to resume after reboot
-    echo "$script" >> $HOME/.bashrc
+    echo "sudo bash $HOME/debian-autosetup/install.sh" >> $HOME/.bashrc
     # create flag to signify if resuming from reboot
     touch $HOME/resume-after-reboot
     # reboot
