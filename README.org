@@ -322,7 +322,7 @@ if [ ! -f $HOME/resume-after-reboot ]; then
     # create flag to signify if resuming from reboot
     touch $HOME/resume-after-reboot
     # reboot
-    reboot
+    systemctl reboot
 else
     # cleanup after reboot
     # remove the script from .bashrc or .zshrc
