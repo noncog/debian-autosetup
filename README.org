@@ -13,6 +13,7 @@ A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based 
 - Git Repositories
 - GTK themes
 - Chemacs2
+- Doom Emacs
 - i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]]
 - Dotfiles managed with git --bare repositories ... see [[#dotfiles][dotfiles]] section for more info.
 - Apps or settings that require a restart
@@ -157,6 +158,7 @@ font_sources=(
 
 ** Git Sources
 I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://github.com/Airblader/i3][i3-gaps]] for Debian. The installer can clone any repository into the downloads directory. It is up to you to process the downloaded content yourself.
+- =NOTE= - I use git for other installers, but in general, I place repositories that "need more work" after cloning here, and other repositories are cloned directly to their final destination if they can be. Like, Chemacs2 and Doom Emacs.
 #+BEGIN_SRC sh :tangle install.sh
 git_sources=(
     # gtk - dracula theme - other theming done in configs themselves
@@ -274,6 +276,14 @@ install_chemacs() {
 }
 #+END_SRC
 
+** Doom Emacs
+#+BEGIN_SRC sh :tangle install.sh
+install_doom() {
+    sudo mkdir /opt/doom-emacs
+    git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
+}
+#+END_SRC
+
 ** i3-gaps-deb
 #+BEGIN_SRC sh :tangle install.sh
 install_i3-gaps-deb() {
@@ -339,6 +349,7 @@ else
     install_git_repositories
     install_theme
     install_chemacs
+    install_doom
     install_i3-gaps-deb
     install_dotfiles
 fi

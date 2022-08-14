@@ -163,6 +163,11 @@ install_chemacs() {
     git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 }
 
+install_doom() {
+    sudo mkdir /opt/doom-emacs
+    git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
+}
+
 install_i3-gaps-deb() {
     cd $downloads_directory/i3-gaps-deb
     /bin/bash i3-gaps-deb
@@ -218,6 +223,7 @@ else
     install_git_repositories
     install_theme
     install_chemacs
+    install_doom
     install_i3-gaps-deb
     install_dotfiles
 fi
