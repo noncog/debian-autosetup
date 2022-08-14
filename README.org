@@ -59,8 +59,11 @@ That means:
 - Each section documents part of the shell script. 
 - You can use this README to learn how the script functions, to customize it, or build your own.
 #+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash" :exports none
-if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root." && exit 1
+if [ ! -f $HOME/resume-after-reboot ]; then
+    if [[ $EUID -ne 0 ]]; then
+        echo "This script must be run as root."
+	  exit 1
+    fi
 fi
 #+END_SRC
 * Sources

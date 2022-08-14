@@ -1,6 +1,9 @@
 #!/bin/bash
-if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root." && exit 1
+if [ ! -f $HOME/resume-after-reboot ]; then
+    if [[ $EUID -ne 0 ]]; then
+        echo "This script must be run as root."
+	  exit 1
+    fi
 fi
 
 debian_sources=(
