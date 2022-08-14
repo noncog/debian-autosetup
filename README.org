@@ -280,7 +280,7 @@ install_chemacs() {
 #+BEGIN_SRC sh :tangle install.sh
 install_doom() {
     sudo mkdir /opt/doom-emacs
-    git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
+    sudo git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
 }
 #+END_SRC
 
