@@ -1,11 +1,4 @@
 #!/bin/bash
-if [ ! -f $HOME/resume-after-reboot ]; then
-    if [[ $EUID -ne 0 ]]; then
-        echo "This script must be run as root."
-	  exit 1
-    fi
-fi
-
 debian_sources=(
     contrib
     non-free
@@ -75,7 +68,6 @@ directory_list=(
 
 font_sources=(
     # these should be zip files not repositories for use with wget!
-
     # Fira Code
     https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
     # Font Awesome 5
@@ -192,6 +184,9 @@ install_dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 }
 
+# define script - used to specify script to run after restart
+script="bash $HOME/debian-autosetup/install.sh"
+
 # check if reboot flag exists
 if [ ! -f $HOME/resume-after-reboot ]; then
     # run your installer scripts for pre-reboot:
@@ -203,7 +198,7 @@ if [ ! -f $HOME/resume-after-reboot ]; then
 
     # prepare for reboot
     # add script to .bashrc or .zshrc to resume after reboot
-    echo "sudo bash $HOME/debian-autosetup/install.sh" >> $HOME/.bashrc
+    echo "$script" >> $HOME/.bashrc
     # create flag to signify if resuming from reboot
     touch $HOME/resume-after-reboot
     # reboot
@@ -211,7 +206,7 @@ if [ ! -f $HOME/resume-after-reboot ]; then
 else
     # cleanup after reboot
     # remove the script from .bashrc or .zshrc
-    sed -i '/^sudo/d' $HOME/.bashrc
+    sed -i '/^bash/d' $HOME/.bashrc
     # remove temp flag that signifies resuming from reboot
     rm -f $HOME/resume-after-reboot
 
