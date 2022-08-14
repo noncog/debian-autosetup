@@ -85,19 +85,19 @@ install_debian_sources() {
     # preprocess the user source list
     appended_sources=${debian_sources[@]}
     # add to source list and update
-    sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
-    apt-get update
+    sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+    sudo apt-get update
 }
 
 install_apt_packages() {
     for package in "${apt_package_list[@]}"; do
-        apt-get install -y $package
+        sudo apt-get install -y $package
     done
 }
 
 install_flatpak_packages() {
     for package in "${flatpak_package_list[@]}"; do
-        flatpak install -y flathub $package
+        sudo flatpak install -y flathub $package
     done
 }
 
@@ -200,15 +200,15 @@ if [ ! -f $HOME/resume-after-reboot ]; then
     # add script to .bashrc or .zshrc to resume after reboot
     echo "$script" >> $HOME/.bashrc
     # create flag to signify if resuming from reboot
-    touch $HOME/resume-after-reboot
+    sudo touch $HOME/resume-after-reboot
     # reboot
-    systemctl reboot
+    sudo reboot
 else
     # cleanup after reboot
     # remove the script from .bashrc or .zshrc
     sed -i '/^bash/d' $HOME/.bashrc
     # remove temp flag that signifies resuming from reboot
-    rm -f $HOME/resume-after-reboot
+    sudo rm -f $HOME/resume-after-reboot
 
     # continue with installation post-resume:
     install_flatpak_packages
