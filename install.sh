@@ -208,7 +208,7 @@ if [ ! -f $HOME/resume-after-reboot ]; then
 else
     # cleanup after reboot
     # remove the script from .bashrc or .zshrc
-    sed -i '/^bash/d' $HOME/.bashrc
+    sed -i '/^sudo/d' $HOME/.bashrc
     # remove temp flag that signifies resuming from reboot
     rm -f $HOME/resume-after-reboot
 
