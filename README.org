@@ -4,7 +4,7 @@
 #+HTML: <p align="center"><img src="debian-auto-setup.png"/></p>
 A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based distributions) to install software and your dotfiles (managed with a git -bare repository) after a fresh install.
 
-This script is capable of installing:
+*This script is capable of installing:*
 - Debian sources
 - Apt packages
 - Flatpak/Flathub packages
@@ -17,7 +17,7 @@ This script is capable of installing:
 - Dotfiles managed with git --bare repositories ... see [[#dotfiles][dotfiles]] section for more info.
 - Apps or settings that require a restart
 
-Tested on:
+*Tested on:*
 - =Debian 11.4= on =8/14/2022=
 
 * Usage
@@ -35,7 +35,7 @@ Before you run the script you should really customize it.
 #+BEGIN_SRC :tangle no
 git clone https://github.com/noncog/debian-autosetup
 cd debian-autosetup
-sudo ./install.sh
+./install.sh
 #+END_SRC
 
 #+BEGIN_QUOTE
@@ -155,7 +155,7 @@ font_sources=(
 #+END_SRC
 
 ** Git Sources
-I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://github.com/Airblader/i3][i3-gaps]] for Debian. The installer can clone any repo into the downloads directory. It is up to you to process the downloaded content yourself.
+I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://github.com/Airblader/i3][i3-gaps]] for Debian. The installer can clone any repository into the downloads directory. It is up to you to process the downloaded content yourself.
 #+BEGIN_SRC sh :tangle install.sh
 git_sources=(
     # gtk - dracula theme - other theming done in configs themselves
