@@ -281,8 +281,11 @@ install_chemacs() {
 install_doom() {
     sudo mkdir /opt/doom-emacs
     sudo git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
+    sudo /opt/doom-emacs/bin/doom install
 }
 #+END_SRC
+
+#+RESULTS:
 
 ** i3-gaps-deb
 #+BEGIN_SRC sh :tangle install.sh
