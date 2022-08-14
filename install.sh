@@ -110,28 +110,28 @@ install_directories() {
 install_fonts() {
     # download fonts
     for url in "${font_sources[@]}"; do
-        wget -P $downloads_directory/fonts $url
+        sudo wget -P $downloads_directory/fonts $url
     done
 
     # unzip fonts
-    cd $downloads_directory/fonts
-    unzip "*.zip"
+    sudo cd $downloads_directory/fonts
+    sudo unzip "*.zip"
 
     # create/check fonts directory
     fonts_dir="${HOME}/.local/share/fonts"
     if [ ! -d "${fonts_dir}" ]; then
         echo "mkdir -p $fonts_dir"
-        mkdir -p "${fonts_dir}"
+        sudo mkdir -p "${fonts_dir}"
     else
         echo "Found fonts dir $fonts_dir"
     fi
 
     # find and copy fonts to font directory
-    find $downloads_directory/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
-    find $downloads_directory/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
+    sudo find $downloads_directory/fonts/ -name '*.ttf' -exec cp {} "${fonts_dir}" \;
+    sudo find $downloads_directory/fonts/ -name '*.otf' -exec cp {} "${fonts_dir}" \;
 
     # reload font cache
-    fc-cache -f
+    sudo fc-cache -f
 }
 
 install_git_repositories() {
