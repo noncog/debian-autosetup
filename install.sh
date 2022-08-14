@@ -1,4 +1,8 @@
 #!/bin/bash
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root." && exit 1
+fi
+
 debian_sources=(
     contrib
     non-free
@@ -53,7 +57,7 @@ flatpak_package_list=(
     com.spotify.Client
 )
 
-downloads_directory=$HOME/downloads
+downloads_directory="$HOME/downloads"
 
 directory_list=(
     $HOME/books
@@ -67,6 +71,8 @@ directory_list=(
 )
 
 font_sources=(
+    # these should be zip files not repositories for use with wget!
+
     # Fira Code
     https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
     # Font Awesome 5
@@ -84,19 +90,19 @@ install_debian_sources() {
     # preprocess the user source list
     appended_sources=${debian_sources[@]}
     # add to source list and update
-    sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
-    sudo apt-get update
+    sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+    apt-get update
 }
 
 install_apt_packages() {
     for package in "${apt_package_list[@]}"; do
-        sudo apt-get install -y $package
+        apt-get install -y $package
     done
 }
 
 install_flatpak_packages() {
     for package in "${flatpak_package_list[@]}"; do
-        sudo flatpak install -y flathub $package
+        flatpak install -y flathub $package
     done
 }
 
@@ -199,15 +205,15 @@ if [ ! -f $HOME/resume-after-reboot ]; then
     # add script to .bashrc or .zshrc to resume after reboot
     echo "$script" >> $HOME/.bashrc
     # create flag to signify if resuming from reboot
-    sudo touch $HOME/resume-after-reboot
+    touch $HOME/resume-after-reboot
     # reboot
-    sudo reboot
+    reboot
 else
     # cleanup after reboot
     # remove the script from .bashrc or .zshrc
     sed -i '/^bash/d' $HOME/.bashrc
     # remove temp flag that signifies resuming from reboot
-    sudo rm -f $HOME/resume-after-reboot
+    rm -f $HOME/resume-after-reboot
 
     # continue with installation post-resume:
     install_flatpak_packages

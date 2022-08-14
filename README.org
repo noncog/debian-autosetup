@@ -35,7 +35,7 @@ Before you run the script you should really customize it.
 #+BEGIN_SRC :tangle no
 git clone https://github.com/noncog/debian-autosetup
 cd debian-autosetup
-./install.sh
+sudo ./install.sh
 #+END_SRC
 
 #+BEGIN_QUOTE
@@ -58,9 +58,14 @@ That means:
 - The README is the shell script. Effectively making the script self documenting.
 - Each section documents part of the shell script. 
 - You can use this README to learn how the script functions, to customize it, or build your own.
+#+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash" :exports none
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root." && exit 1
+fi
+#+END_SRC
 * Sources
 ** Debian Sources
-#+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash"
+#+BEGIN_SRC sh :tangle install.sh
 debian_sources=(
     contrib
     non-free
@@ -127,7 +132,7 @@ flatpak_package_list=(
 This is the directory the script will download any files into.
 - =NOTE= If this is not a standard system directory, it will also need added to the directory list below.
 #+BEGIN_SRC sh :tangle install.sh
-downloads_directory=$HOME/downloads
+downloads_directory="$HOME/downloads"
 #+END_SRC
 *** To Be Created
 #+BEGIN_SRC sh :tangle install.sh
@@ -146,6 +151,8 @@ directory_list=(
 ** Font Sources
 #+BEGIN_SRC sh :tangle install.sh
 font_sources=(
+    # these should be zip files not repositories for use with wget!
+
     # Fira Code
     https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
     # Font Awesome 5
@@ -171,8 +178,8 @@ install_debian_sources() {
     # preprocess the user source list
     appended_sources=${debian_sources[@]}
     # add to source list and update
-    sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
-    sudo apt-get update
+    sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
+    apt-get update
 }
 #+END_SRC
 
@@ -180,7 +187,7 @@ install_debian_sources() {
 #+BEGIN_SRC sh :tangle install.sh
 install_apt_packages() {
     for package in "${apt_package_list[@]}"; do
-        sudo apt-get install -y $package
+        apt-get install -y $package
     done
 }
 #+END_SRC
@@ -189,7 +196,7 @@ install_apt_packages() {
 #+BEGIN_SRC sh :tangle install.sh
 install_flatpak_packages() {
     for package in "${flatpak_package_list[@]}"; do
-        sudo flatpak install -y flathub $package
+        flatpak install -y flathub $package
     done
 }
 #+END_SRC
@@ -319,15 +326,15 @@ if [ ! -f $HOME/resume-after-reboot ]; then
     # add script to .bashrc or .zshrc to resume after reboot
     echo "$script" >> $HOME/.bashrc
     # create flag to signify if resuming from reboot
-    sudo touch $HOME/resume-after-reboot
+    touch $HOME/resume-after-reboot
     # reboot
-    sudo reboot
+    reboot
 else
     # cleanup after reboot
     # remove the script from .bashrc or .zshrc
     sed -i '/^bash/d' $HOME/.bashrc
     # remove temp flag that signifies resuming from reboot
-    sudo rm -f $HOME/resume-after-reboot
+    rm -f $HOME/resume-after-reboot
 
     # continue with installation post-resume:
     install_flatpak_packages
