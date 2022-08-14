@@ -18,7 +18,7 @@ This script is capable of installing:
 - Apps or settings that require a restart
 
 Tested on:
-- Debian 11
+- =Debian 11.4= on =8/14/2022=
 
 * Usage
 ** Prerequisites
@@ -46,10 +46,10 @@ sudo ./install.sh
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists (arrays) with your requirements and they will be installed.
-- If you want to disable sections (e.g., Flatpak/Flathub), comment out or remove it's install function call from the Main Installer section (i.e., install_flatpak_packages).
-- Some actions like additional processing of Git repositories after download may require custom scripting.
+- If you want to disable sections (e.g., Flatpak/Flathub), comment out or remove it's install function call from the [[https://github.com/noncog/debian-autosetup#main-installer-with-restart-ability][Main Installer]] section (i.e., install_flatpak_packages).
+- =NOTE= - Some actions like additional processing of Git repositories after download may require custom scripting.
 
-Additionally, you can fork this repository, to make customizations, clone, and version control your own repository!
+Additionally, you can =fork this repository=, to make customizations, clone, and version control your own repository!
 
 * About
 The =install.sh= script is created from this =README.org= file using Emacs' org-mode, and org-babel's [[https://leanpub.com/lit-config/read][literate programming]].
@@ -155,7 +155,7 @@ font_sources=(
 #+END_SRC
 
 ** Git Sources
-I use git to source my theme and i3-gaps for debian. The installer can clone any repo into the downloads directory. It is up to you to process the downloaded content yourself.
+I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://github.com/Airblader/i3][i3-gaps]] for Debian. The installer can clone any repo into the downloads directory. It is up to you to process the downloaded content yourself.
 #+BEGIN_SRC sh :tangle install.sh
 git_sources=(
     # gtk - dracula theme - other theming done in configs themselves
@@ -205,7 +205,7 @@ install_directories() {
 #+END_SRC
 
 ** Fonts
-Note: If your fonts won't work, (they should) then their permissions may need modified. Use chmod 644 on them.
+=NOTE= - If your fonts won't work, (they should) then their permissions may need modified. Use =chmod 644= on them.
 #+BEGIN_SRC sh :tangle install.sh
 install_fonts() {
     # download fonts
@@ -264,6 +264,7 @@ install_theme() {
 #+END_SRC
 
 ** Chemacs2
+[[https://github.com/plexus/chemacs2][Chemacs2]] is a profile manager for Emacs. I use it and [[https://github.com/noncog/rofi-chemacs][rofi-chemacs]], a rofi based wrapper I wrote, to have both [[https://github.com/doomemacs/doomemacs][Doom Emacs]] and [[https://github.com/noncog/.dotfiles/tree/master/.config/cogmacs][Cogmacs]] (my personal Emacs) on my system.
 #+BEGIN_SRC sh :tangle install.sh
 install_chemacs() {
     [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
