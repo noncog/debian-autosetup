@@ -31,6 +31,7 @@ apt_package_list=(
     emacs
     emacs-common-non-dfsg
     vim
+    libreoffice
     # programs
     firefox-esr
     anki
