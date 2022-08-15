@@ -76,8 +76,10 @@ font_sources=(
 )
 
 git_sources=(
-    # gtk - dracula theme - other theming done in configs themselves
+    # gtk - dracula theme
     https://github.com/dracula/gtk
+    # grub - dracula theme
+    https://github.com/dracula/grub
     # i3-gaps debian
     https://github.com/maestrogerardo/i3-gaps-deb
 )
@@ -144,7 +146,7 @@ install_git_repositories() {
 }
 
 install_theme() {
-    # create/check theme directory
+    # create/check .themes directory
     themes_dir="${HOME}/.themes"
     if [ ! -d "${themes_dir}" ]; then
         echo "mkdir -p $themes_dir"
@@ -153,8 +155,16 @@ install_theme() {
         echo "Found themes dir $themes_dir"
     fi
 
+    # create grub theme directory
+    sudo mkdir /boot/grub/themes
+
     # move and copy theme files to where they go
     mv $downloads_directory/gtk $themes_dir/Dracula
+    sudo mv $downloads_directory/grub/dracula /boot/grub/themes
+
+    # enable grub theme
+    echo "GRUB_THEME=/boot/grub/themes/dracula/theme.txt" | sudo tee -a /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
 install_chemacs() {

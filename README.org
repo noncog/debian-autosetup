@@ -161,8 +161,10 @@ I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://gith
 - =NOTE= - I use git for other installers, but in general, I place repositories that "need more work" after cloning here, and other repositories are cloned directly to their final destination if they can be. Like, Chemacs2 and Doom Emacs.
 #+BEGIN_SRC sh :tangle install.sh
 git_sources=(
-    # gtk - dracula theme - other theming done in configs themselves
+    # gtk - dracula theme
     https://github.com/dracula/gtk
+    # grub - dracula theme
+    https://github.com/dracula/grub
     # i3-gaps debian
     https://github.com/maestrogerardo/i3-gaps-deb
 )
@@ -252,7 +254,7 @@ install_git_repositories() {
 ** Theme
 #+BEGIN_SRC sh :tangle install.sh
 install_theme() {
-    # create/check theme directory
+    # create/check .themes directory
     themes_dir="${HOME}/.themes"
     if [ ! -d "${themes_dir}" ]; then
         echo "mkdir -p $themes_dir"
@@ -261,8 +263,16 @@ install_theme() {
         echo "Found themes dir $themes_dir"
     fi
 
+    # create grub theme directory
+    sudo mkdir /boot/grub/themes
+
     # move and copy theme files to where they go
     mv $downloads_directory/gtk $themes_dir/Dracula
+    sudo mv $downloads_directory/grub/dracula /boot/grub/themes
+
+    # enable grub theme
+    echo "GRUB_THEME=/boot/grub/themes/dracula/theme.txt" | sudo tee -a /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 #+END_SRC
 
@@ -285,8 +295,6 @@ install_doom() {
     /opt/doom-emacs/bin/doom install
 }
 #+END_SRC
-
-#+RESULTS:
 
 ** i3-gaps-deb
 #+BEGIN_SRC sh :tangle install.sh
