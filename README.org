@@ -12,6 +12,7 @@ A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based 
 - Fonts
 - Git Repositories
 - GTK themes
+- Grub themes
 - Chemacs2
 - Doom Emacs
 - i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]]
