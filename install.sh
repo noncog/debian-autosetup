@@ -65,6 +65,7 @@ directory_list=(
     $HOME/pictures/screenshots
     $HOME/projects
     $HOME/videos
+    $HOME/videos/archive
 )
 
 font_sources=(
