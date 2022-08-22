@@ -40,6 +40,7 @@ apt_package_list=(
     sxiv
     vlc
     gimp
+    zathura
     # other
     flatpak
     # drivers
