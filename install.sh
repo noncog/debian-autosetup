@@ -172,7 +172,7 @@ install_theme() {
 install_chemacs() {
     [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
     [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.bak
-    git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+    git clone https://github.com/plexus/chemacs2.git ~/.config/emacs
 }
 
 install_doom() {
