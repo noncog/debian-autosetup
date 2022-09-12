@@ -27,11 +27,15 @@ apt_package_list=(
     ssh
     borgbackup
     ripgrep
+    curl
+    dvipng
     # editors
     emacs
     emacs-common-non-dfsg
     vim
     libreoffice
+    texlive
+    texlive-latex-extra
     # programs
     firefox-esr
     anki
