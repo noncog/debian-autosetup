@@ -29,6 +29,8 @@ apt_package_list=(
     ripgrep
     curl
     dvipng
+    plantuml
+    gnuplot
     # editors
     emacs
     emacs-common-non-dfsg
