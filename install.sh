@@ -36,6 +36,7 @@ apt_package_list=(
     emacs-common-non-dfsg
     vim
     libreoffice
+    inkscape
     texlive
     texlive-latex-extra
     # programs
