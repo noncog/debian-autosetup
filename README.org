@@ -81,6 +81,9 @@ apt_package_list=(
     picom
     nitrogen
     lxappearance
+    gnome-themes-standard
+    gtk2-engines-pixbuf
+    gtk2-engines-murrine
     # utilities/tools
     pulseaudio
     network-manager
