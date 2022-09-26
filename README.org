@@ -105,7 +105,6 @@ apt_package_list=(
     libreoffice
     inkscape
     texlive
-    texlive-latex-extra
     # programs
     firefox-esr
     anki
