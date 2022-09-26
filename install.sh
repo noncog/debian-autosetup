@@ -41,6 +41,7 @@ apt_package_list=(
     libreoffice
     inkscape
     texlive
+    texlive-latex-extra
     latexmk
     # programs
     firefox-esr
