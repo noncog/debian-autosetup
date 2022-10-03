@@ -34,6 +34,7 @@ apt_package_list=(
     dvipng
     plantuml
     gnuplot
+    xdotool
     # editors
     emacs
     emacs-common-non-dfsg

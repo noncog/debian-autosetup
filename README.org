@@ -1,7 +1,7 @@
 #+HTML: <h1 align="center">debian-autosetup</h1>
 #+HTML: <p align="center"><a href="https://www.debian.org/"><img src="https://img.shields.io/badge/Debian-11-critical?style=flat-square&logo=Debian&logoColor=white" /></a> <a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Made_with-Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white" /></a> <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Org-literate%20document-%2377aa99?style=flat-square&logo=org&logoColor=white"></a> <a href="https://github.com/noncog/.dotfiles/blob/master/LICENSE"><img src="https://img.shields.io/github/license/noncog/debian-autosetup?color=blue&style=flat-square" /></a></p>
 
-#+HTML: <p align="center"><img src="debian-auto-setup.png"/></p>
+#+HTML: <p align="center"><img src="debian-auto-setup.png" height="350"></p>
 A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based distributions) to install software and your dotfiles (managed with a git -bare repository) after a fresh install.
 
 *This script is capable of installing:*
@@ -101,6 +101,7 @@ apt_package_list=(
     dvipng
     plantuml
     gnuplot
+    xdotool
     # editors
     emacs
     emacs-common-non-dfsg
