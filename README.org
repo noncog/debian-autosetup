@@ -102,6 +102,7 @@ apt_package_list=(
     plantuml
     gnuplot
     xdotool
+    cura
     # editors
     emacs
     emacs-common-non-dfsg
