@@ -103,6 +103,7 @@ apt_package_list=(
     gnuplot
     xdotool
     cura
+    kicad
     # editors
     emacs
     emacs-common-non-dfsg

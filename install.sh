@@ -35,6 +35,8 @@ apt_package_list=(
     plantuml
     gnuplot
     xdotool
+    cura
+    kicad
     # editors
     emacs
     emacs-common-non-dfsg
