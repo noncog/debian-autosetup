@@ -69,18 +69,18 @@ flatpak_package_list=(
     com.spotify.Client
 )
 
-downloads_directory="$HOME/downloads"
+downloads_directory="$HOME/Downloads"
 
 directory_list=(
-    $HOME/books
-    $HOME/documents
-    $HOME/downloads
-    $HOME/pictures
-    $HOME/pictures/archive
-    $HOME/pictures/screenshots
-    $HOME/projects
-    $HOME/videos
-    $HOME/videos/archive
+    $HOME/Books
+    $HOME/Documents
+    $HOME/Downloads
+    $HOME/Pictures
+    $HOME/Pictures/archive
+    $HOME/Pictures/screenshots
+    $HOME/Projects
+    $HOME/Videos
+    $HOME/Videos/archive
 )
 
 font_sources=(

@@ -41,7 +41,7 @@ sudo apt install git
 #+END_SRC
 ** Cloning and Using
 Before you run the script you should really customize it.
-#+BEGIN_SRC :tangle no
+#+BEGIN_SRC sh :tangle no
 git clone https://github.com/noncog/debian-autosetup
 cd debian-autosetup
 ./install.sh
@@ -145,20 +145,20 @@ flatpak_package_list=(
 This is the directory the script will download any files into.
 - =NOTE= If this is not a standard system directory, it will also need added to the directory list below.
 #+BEGIN_SRC sh :tangle install.sh
-downloads_directory="$HOME/downloads"
+downloads_directory="$HOME/Downloads"
 #+END_SRC
 *** To Be Created
 #+BEGIN_SRC sh :tangle install.sh
 directory_list=(
-    $HOME/books
-    $HOME/documents
-    $HOME/downloads
-    $HOME/pictures
-    $HOME/pictures/archive
-    $HOME/pictures/screenshots
-    $HOME/projects
-    $HOME/videos
-    $HOME/videos/archive
+    $HOME/Books
+    $HOME/Documents
+    $HOME/Downloads
+    $HOME/Pictures
+    $HOME/Pictures/archive
+    $HOME/Pictures/screenshots
+    $HOME/Projects
+    $HOME/Videos
+    $HOME/Videos/archive
 )
 #+END_SRC
 
