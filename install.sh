@@ -189,11 +189,11 @@ install_chemacs() {
     git clone https://github.com/plexus/chemacs2.git ~/.config/emacs
 }
 
+doom_directory="$HOME/.config/emacs"
+
 install_doom() {
-    mkdir $downloads_directory/doom-emacs
-    sudo mv $downloads_directory/doom-emacs /opt
-    git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
-    /opt/doom-emacs/bin/doom install
+    git clone --depth 1 https://github.com/doomemacs/doomemacs $doom_directory
+    $doom_directory/bin/doom install
 }
 
 install_i3-gaps-deb() {

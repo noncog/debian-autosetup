@@ -1,7 +1,15 @@
-#+HTML: <h1 align="center">debian-autosetup</h1>
-#+HTML: <p align="center"><a href="https://www.debian.org/"><img src="https://img.shields.io/badge/Debian-11-critical?style=flat-square&logo=Debian&logoColor=white" /></a> <a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Made_with-Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white" /></a> <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Org-literate%20document-%2377aa99?style=flat-square&logo=org&logoColor=white"></a> <a href="https://github.com/noncog/.dotfiles/blob/master/LICENSE"><img src="https://img.shields.io/github/license/noncog/debian-autosetup?color=blue&style=flat-square" /></a></p>
+#+html:<div align="center">
+* debian-autosetup
 
-#+HTML: <p align="center"><img src="debian-auto-setup.png" height="450"></p>
+#+begin_html
+<p>
+<a href="https://www.debian.org/"><img src="https://img.shields.io/badge/Debian-11-critical?style=flat-square&logo=Debian&logoColor=white" /></a> <a href="https://www.gnu.org/software/emacs/"><img src="https://img.shields.io/badge/Made_with-Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white" /></a> <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Org-literate%20document-%2377aa99?style=flat-square&logo=org&logoColor=white"></a> <a href="https://github.com/noncog/debian-autosetup/blob/master/LICENSE"><img src="https://img.shields.io/github/license/noncog/debian-autosetup?color=blue&style=flat-square" /></a>
+</p>
+<p><img src="debian-auto-setup.png" height="450"></p>
+#+end_html
+
+#+html:</div>
+
 A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based distributions) to install software and your dotfiles (managed with a git -bare repository) after a fresh install.
 
 *This script is capable of installing:*
@@ -304,12 +312,15 @@ install_chemacs() {
 #+END_SRC
 
 ** Doom Emacs
+
+#+BEGIN_SRC sh :tangle install.sh
+doom_directory="$HOME/.config/emacs"
+#+END_SRC
+
 #+BEGIN_SRC sh :tangle install.sh
 install_doom() {
-    mkdir $downloads_directory/doom-emacs
-    sudo mv $downloads_directory/doom-emacs /opt
-    git clone --depth 1 https://github.com/doomemacs/doomemacs /opt/doom-emacs
-    /opt/doom-emacs/bin/doom install
+    git clone --depth 1 https://github.com/doomemacs/doomemacs $doom_directory
+    $doom_directory/bin/doom install
 }
 #+END_SRC
 
