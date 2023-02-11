@@ -31,35 +31,43 @@ A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based 
 - =Debian 11.4= on =8/14/2022=
 
 * About
+
 The =install.sh= script is created from this =README.org= file using Emacs' org-mode, and org-babel's [[https://leanpub.com/lit-config/read][literate programming]].
 
 That means:
 - The README is the shell script. Effectively making the script self documenting.
 - Each section documents part of the shell script.
 - You can use this README to learn how the script functions, to customize it, or build your own.
+
 * Usage
 ** Prerequisites
+
 On a minimal install system you will need to do the following before cloning this repository and using it:
-#+BEGIN_SRC sh :tangle no
+
+#+begin_src sh :tangle no
 su -
 apt install sudo
 sudo adduser <username> sudo
 reboot
 sudo apt install git
-#+END_SRC
+#+end_src
+
 ** Cloning and Using
+
 Before you run the script you should really customize it.
-#+BEGIN_SRC sh :tangle no
+
+#+begin_src sh :tangle no
 git clone https://github.com/noncog/debian-autosetup
 cd debian-autosetup
 ./install.sh
-#+END_SRC
+#+end_src
 
-#+BEGIN_QUOTE
+#+begin_quote
 *Disclaimer:* /Do not run unless you are sure./ This script attempts to install several packages, configurations, and files. This will overwrite your existing configs and place them in =~/.dotfiles-backups=.
-#+END_QUOTE
+#+end_quote
 
 ** Customization
+
 By default, the script is setup to my configuration but is modular and easily customizable.
 
 - Just modify the lists (arrays) with your requirements and they will be installed.
@@ -70,15 +78,17 @@ Additionally, you can =fork this repository=, to make customizations, clone, and
 
 * Sources
 ** Debian Sources
-#+BEGIN_SRC sh :tangle install.sh :shebang "#!/bin/bash"
+
+#+begin_src sh :tangle install.sh :shebang "#!/bin/bash"
 debian_sources=(
     contrib
     non-free
 )
-#+END_SRC
+#+end_src
 
 ** Apt Packages
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 apt_package_list=(
     # gui
     xorg
@@ -138,25 +148,30 @@ apt_package_list=(
     nvidia-driver
     firmware-misc-nonfree
 )
-#+END_SRC
+#+end_src
 
 ** Flatpak/Flathub Packages
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 flatpak_package_list=(
     # spotify
     com.spotify.Client
 )
-#+END_SRC
+#+end_src
 
 ** Directories
 *** Downloads Location
+
 This is the directory the script will download any files into.
 - =NOTE= If this is not a standard system directory, it will also need added to the directory list below.
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 downloads_directory="$HOME/Downloads"
-#+END_SRC
+#+end_src
+
 *** To Be Created
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 directory_list=(
     $HOME/Books
     $HOME/Documents
@@ -168,10 +183,11 @@ directory_list=(
     $HOME/Videos
     $HOME/Videos/archive
 )
-#+END_SRC
+#+end_src
 
 ** Font Sources
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 font_sources=(
     # these should be zip files not repositories for use with wget!
     # Fira Code
@@ -179,12 +195,14 @@ font_sources=(
     # Font Awesome 5
     https://github.com/FortAwesome/Font-Awesome/releases/download/5.15.4/fontawesome-free-5.15.4-desktop.zip
 )
-#+END_SRC
+#+end_src
 
 ** Git Sources
+
 I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://github.com/Airblader/i3][i3-gaps]] for Debian. The installer can clone any repository into the downloads directory. It is up to you to process the downloaded content yourself.
 - =NOTE= - I use git for other installers, but in general, I place repositories that "need more work" after cloning here, and other repositories are cloned directly to their final destination if they can be. Like, Chemacs2 and Doom Emacs.
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 git_sources=(
     # gtk - dracula theme
     https://github.com/dracula/gtk
@@ -193,11 +211,12 @@ git_sources=(
     # i3-gaps debian
     https://github.com/maestrogerardo/i3-gaps-deb
 )
-#+END_SRC
+#+end_src
 
 * Install Functions
 ** Debian Sources
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_debian_sources() {
     # preprocess the user source list
     appended_sources=${debian_sources[@]}
@@ -205,38 +224,43 @@ install_debian_sources() {
     sudo sed -i "/^deb/ s/$/ $appended_sources/" /etc/apt/sources.list
     sudo apt-get update
 }
-#+END_SRC
+#+end_src
 
 ** Apt Packages
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_apt_packages() {
     for package in "${apt_package_list[@]}"; do
         sudo apt-get install -y $package
     done
 }
-#+END_SRC
+#+end_src
 
 ** Flatpak/Flathub Packages
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_flatpak_packages() {
     for package in "${flatpak_package_list[@]}"; do
         flatpak install -y flathub $package
     done
 }
-#+END_SRC
+#+end_src
 
 ** Directories
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_directories() {
     for directory in "${directory_list[@]}"; do
         mkdir -p $directory
     done
 }
-#+END_SRC
+#+end_src
 
 ** Fonts
+
 =NOTE= - If your fonts won't work, (they should) then their permissions may need modified. Use =chmod 644= on them.
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_fonts() {
     # download fonts
     for url in "${font_sources[@]}"; do
@@ -263,10 +287,11 @@ install_fonts() {
     # reload font cache
     fc-cache -f
 }
-#+END_SRC
+#+end_src
 
 ** Git Repositories
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_git_repositories() {
     # clone git repositories
     cd $downloads_directory
@@ -274,10 +299,11 @@ install_git_repositories() {
         git clone $url
     done
 }
-#+END_SRC
+#+end_src
 
 ** Theme
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_theme() {
     # create/check .themes directory
     themes_dir="${HOME}/.themes"
@@ -299,43 +325,48 @@ install_theme() {
     echo "GRUB_THEME=/boot/grub/themes/dracula/theme.txt" | sudo tee -a /etc/default/grub
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
-#+END_SRC
+#+end_src
 
 ** Chemacs2
+
 [[https://github.com/plexus/chemacs2][Chemacs2]] is a profile manager for Emacs. I use it and [[https://github.com/noncog/rofi-chemacs][rofi-chemacs]], a rofi based wrapper I wrote, to have both [[https://github.com/doomemacs/doomemacs][Doom Emacs]] and [[https://github.com/noncog/.dotfiles/tree/master/.config/cogmacs][Cogmacs]] (my personal Emacs) on my system.
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_chemacs() {
     [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
     [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.bak
     git clone https://github.com/plexus/chemacs2.git ~/.config/emacs
 }
-#+END_SRC
+#+end_src
 
 ** Doom Emacs
 
-#+BEGIN_SRC sh :tangle install.sh
+#+begin_src sh :tangle install.sh
 doom_directory="$HOME/.config/emacs"
-#+END_SRC
+#+end_src
 
-#+BEGIN_SRC sh :tangle install.sh
+#+begin_src sh :tangle install.sh
 install_doom() {
     git clone --depth 1 https://github.com/doomemacs/doomemacs $doom_directory
     $doom_directory/bin/doom install
 }
-#+END_SRC
+#+end_src
 
 ** i3-gaps-deb
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_i3-gaps-deb() {
     cd $downloads_directory/i3-gaps-deb
     /bin/bash i3-gaps-deb
 }
-#+END_SRC
+#+end_src
 
 ** Dotfiles
+
 I manage my dotfiles using a git --bare repository. In short, this allows me to automatically install them where they belong when I clone them from GitHub.
 For more information and how to setup your own, see my [[https://github.com/noncog/.dotfiles][dotfiles repository]] under the =More Information= section.
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 install_dotfiles() {
     # clone dotfiles
     git clone --bare https://github.com/noncog/.dotfiles $HOME/.dotfiles
@@ -352,10 +383,11 @@ install_dotfiles() {
     # hide untracked files
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 }
-#+END_SRC
+#+end_src
 
 * Main Installer With Restart Ability
-#+BEGIN_SRC sh :tangle install.sh
+
+#+begin_src sh :tangle install.sh
 # define script - used to specify script to run after restart
 script="bash $HOME/debian-autosetup/install.sh"
 
@@ -393,4 +425,4 @@ else
     install_i3-gaps-deb
     install_dotfiles
 fi
-#+END_SRC
+#+end_src
