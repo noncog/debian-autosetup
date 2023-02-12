@@ -90,62 +90,57 @@ debian_sources=(
 #+begin_src sh :tangle install.sh
 apt_package_list=(
     # gui
-    xorg
-    i3-wm
-    dunst
-    rofi
-    polybar
-    picom
-    nitrogen
-    lxappearance
-    gnome-themes-standard
-    gtk2-engines-pixbuf
-    gtk2-engines-murrine
-    # utilities/tools
-    pulseaudio
-    network-manager
-    network-manager-gnome
-    kitty
-    unzip
-    scrot
-    obs-studio
-    ffmpeg
-    neofetch
-    ssh
+    anki
     borgbackup
-    ripgrep
-    curl
-    dvipng
-    plantuml
-    gnuplot
-    xdotool
+    cmake
     cura
-    kicad
-    # editors
+    curl
+    dunst
+    dvipng
     emacs
     emacs-common-non-dfsg
-    vim
-    libreoffice
+    ffmpeg
+    firefox-esr
+    firmware-iwlwifi
+    firmware-misc-nonfree
+    flatpak
+    gimp
+    gnome-themes-standard
+    gnuplot
+    gtk2-engines-murrine
+    gtk2-engines-pixbuf
+    i3-wm
     inkscape
+    kicad
+    kitty
+    latexmk
+    libreoffice
+    linux-headers-amd64
+    lxappearance
+    neofetch
+    network-manager
+    network-manager-gnome
+    nitrogen
+    nvidia-driver
+    obs-studio
+    picom
+    plantuml
+    polybar
+    pulseaudio
+    ranger
+    ripgrep
+    rofi
+    scrot
+    ssh
+    sxiv
     texlive
     texlive-latex-extra
-    latexmk
-    # programs
-    firefox-esr
-    anki
-    # files and media
-    ranger
-    sxiv
+    unzip
+    vim
     vlc
-    gimp
+    xdotool
+    xorg
     zathura
-    # other
-    flatpak
-    # drivers
-    firmware-iwlwifi
-    linux-headers-amd64
-    nvidia-driver
-    firmware-misc-nonfree
 )
 #+end_src
 
