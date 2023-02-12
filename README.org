@@ -21,7 +21,6 @@ A simple bash script (compatible with [[https://www.debian.org/][Debian]]-based 
 - Git Repositories
 - GTK themes
 - Grub themes
-- Chemacs2
 - Doom Emacs
 - i3-gaps, using maestrogerardo's [[https://github.com/maestrogerardo/i3-gaps-deb][script]]
 - Dotfiles managed with git --bare repositories ... see [[#dotfiles][dotfiles]] section for more info.
@@ -200,7 +199,7 @@ font_sources=(
 ** Git Sources
 
 I use =git= to source my [[https://draculatheme.com/][theme]] and [[https://github.com/Airblader/i3][i3-gaps]] for Debian. The installer can clone any repository into the downloads directory. It is up to you to process the downloaded content yourself.
-- =NOTE= - I use git for other installers, but in general, I place repositories that "need more work" after cloning here, and other repositories are cloned directly to their final destination if they can be. Like, Chemacs2 and Doom Emacs.
+- =NOTE= - I use git for other installers, but in general, I place repositories that "need more work" after cloning here, and other repositories are cloned directly to their final destination if they can be.
 
 #+begin_src sh :tangle install.sh
 git_sources=(
@@ -327,18 +326,6 @@ install_theme() {
 }
 #+end_src
 
-** Chemacs2
-
-[[https://github.com/plexus/chemacs2][Chemacs2]] is a profile manager for Emacs. I use it and [[https://github.com/noncog/rofi-chemacs][rofi-chemacs]], a rofi based wrapper I wrote, to have both [[https://github.com/doomemacs/doomemacs][Doom Emacs]] and [[https://github.com/noncog/.dotfiles/tree/master/.config/cogmacs][Cogmacs]] (my personal Emacs) on my system.
-
-#+begin_src sh :tangle install.sh
-install_chemacs() {
-    [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
-    [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.bak
-    git clone https://github.com/plexus/chemacs2.git ~/.config/emacs
-}
-#+end_src
-
 ** Doom Emacs
 
 #+begin_src sh :tangle install.sh
@@ -420,7 +407,6 @@ else
     install_fonts
     install_git_repositories
     install_theme
-    install_chemacs
     install_doom
     install_i3-gaps-deb
     install_dotfiles
