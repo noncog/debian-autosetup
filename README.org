@@ -89,7 +89,6 @@ debian_sources=(
 
 #+begin_src sh :tangle install.sh
 apt_package_list=(
-    # gui
     anki
     barrier
     blender

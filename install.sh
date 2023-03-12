@@ -1,67 +1,63 @@
-#!/bin/bash
+#!/usr/bin/env bash
 debian_sources=(
     contrib
     non-free
 )
 
 apt_package_list=(
-    # gui
-    xorg
-    i3-wm
-    dunst
-    rofi
-    polybar
-    picom
-    nitrogen
-    lxappearance
-    gnome-themes-standard
-    gtk2-engines-pixbuf
-    gtk2-engines-murrine
-    # utilities/tools
-    pulseaudio
-    network-manager
-    network-manager-gnome
-    kitty
-    unzip
-    scrot
-    obs-studio
-    ffmpeg
-    neofetch
-    ssh
+    anki
+    barrier
+    blender
     borgbackup
-    ripgrep
-    curl
-    dvipng
-    plantuml
-    gnuplot
-    xdotool
+    cmake
     cura
-    kicad
-    # editors
+    curl
+    dunst
+    dvipng
     emacs
     emacs-common-non-dfsg
-    vim
-    libreoffice
+    ffmpeg
+    firefox-esr
+    firmware-iwlwifi
+    firmware-misc-nonfree
+    flatpak
+    gimp
+    gnome-themes-standard
+    gnuplot
+    gtk2-engines-murrine
+    gtk2-engines-pixbuf
+    i3-wm
     inkscape
+    kicad
+    kitty
+    latexmk
+    libreoffice
+    linux-headers-amd64
+    lxappearance
+    neofetch
+    network-manager
+    network-manager-gnome
+    nitrogen
+    nvidia-driver
+    obs-studio
+    picom
+    plantuml
+    polybar
+    pulseaudio
+    ranger
+    ripgrep
+    rofi
+    scrot
+    ssh
+    sxiv
     texlive
     texlive-latex-extra
-    latexmk
-    # programs
-    firefox-esr
-    anki
-    # files and media
-    ranger
-    sxiv
+    unzip
+    vim
     vlc
-    gimp
+    xdotool
+    xorg
     zathura
-    # other
-    flatpak
-    # drivers
-    firmware-iwlwifi
-    linux-headers-amd64
-    nvidia-driver
-    firmware-misc-nonfree
 )
 
 flatpak_package_list=(
@@ -183,12 +179,6 @@ install_theme() {
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
-install_chemacs() {
-    [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
-    [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.bak
-    git clone https://github.com/plexus/chemacs2.git ~/.config/emacs
-}
-
 doom_directory="$HOME/.config/emacs"
 
 install_doom() {
@@ -250,7 +240,6 @@ else
     install_fonts
     install_git_repositories
     install_theme
-    install_chemacs
     install_doom
     install_i3-gaps-deb
     install_dotfiles
