@@ -91,6 +91,8 @@ debian_sources=(
 apt_package_list=(
     # gui
     anki
+    barrier
+    blender
     borgbackup
     cmake
     cura
