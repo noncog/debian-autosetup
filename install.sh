@@ -21,6 +21,7 @@ apt_package_list=(
     firmware-iwlwifi
     firmware-misc-nonfree
     flatpak
+    fonts-jetbrains-mono
     gimp
     gnome-themes-standard
     gnuplot
