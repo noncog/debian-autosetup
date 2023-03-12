@@ -78,7 +78,7 @@ Additionally, you can =fork this repository=, to make customizations, clone, and
 * Sources
 ** Debian Sources
 
-#+begin_src sh :tangle install.sh :shebang "#!/bin/bash"
+#+begin_src sh :tangle install.sh :shebang "#!/usr/bin/env bash"
 debian_sources=(
     contrib
     non-free
