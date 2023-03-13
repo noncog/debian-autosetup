@@ -125,6 +125,7 @@ apt_package_list=(
     nitrogen
     nvidia-driver
     obs-studio
+    pavucontrol
     picom
     plantuml
     polybar
