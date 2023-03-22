@@ -353,20 +353,67 @@ For more information and how to setup your own, see my [[https://github.com/nonc
 
 #+begin_src sh :tangle install.sh
 install_dotfiles() {
+    # define details about your dotfiles
+    # DO NOT USE a trailing '/' for the following variables
+    dotfiles_repo="https://github.com/noncog/.dotfiles"
+    dotfiles_dir="$HOME/.dotfiles"
+    dotfiles_backup_dir="$HOME/.dotfiles-backup"
+
+    recursive_yes_or_no() {
+        read -p "$1" -n 1 -r
+        echo    # (optional) move to a new line
+        case "$REPLY" in
+            y|Y ) return 0;;
+            n|N ) return 1;;
+            ,* ) recursive_yes_or_no "$1";;
+        esac
+    }
+
+    finish_install() {
+        # create backups directory
+        mkdir -p "$dotfiles_backup_dir"
+
+        # move dotfiles in the way to the backups directory.
+        IFS=$'\n' read -r -d '' -a dotfile_list < \
+        <(/usr/bin/git --git-dir="$dotfiles_dir/" --work-tree="$HOME" checkout 2>&1 | \
+        grep -E "^\s" | awk '{print $1}' && printf '\0')
+
+        echo "Backing up dotfiles!"
+        for file in "${dotfile_list[@]}"; do
+            mkdir -p "$dotfiles_backup_dir"/"$file"
+            echo "Moving $HOME/$file to $dotfiles_backup_dir/$file"
+            mv "$HOME"/"$file" "$dotfiles_backup_dir"/"$file"
+        done
+
+        # now check out
+        /usr/bin/git --git-dir="$dotfiles_dir" --work-tree="$HOME" checkout
+
+        # hide untracked files
+        /usr/bin/git --git-dir="$dotfiles_dir" --work-tree="$HOME" config --local status.showUntrackedFiles no
+
+        echo "Dotfiles install complete!"
+    }
+
+    reinstall() {
+        echo
+        echo "It looks like you're trying to reinstall dotfiles from: '$dotfiles_repo'"
+        if recursive_yes_or_no "Would you like to reinstall by overwriting '$dotfiles_dir'? (y/n): "; then
+            echo "Removing '$dotfiles_dir'"
+            rm -rf "$dotfiles_dir"
+            echo "Cloning from: '$dotfiles_repo'"
+            git clone --bare "$dotfiles_repo" "$dotfiles_dir"
+            finish_install
+        else
+            echo "Aborting dotfiles install!"
+        fi
+    }
+
     # clone dotfiles
-    git clone --bare https://github.com/noncog/.dotfiles $HOME/.dotfiles
-
-    # checkout will backup dotfiles in the way
-    cd ${HOME}
-    mkdir -p .dotfiles-backup && \
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-    xargs -I{} mv {} .dotfiles-backup/{}
-
-    # now check out
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
-
-    # hide untracked files
-    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+    if git clone --bare "$dotfiles_repo" "$dotfiles_dir"; then
+        finish_install
+    else
+        reinstall
+    fi
 }
 #+end_src
 
